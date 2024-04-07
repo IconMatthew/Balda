@@ -13,7 +13,10 @@ public class Player {
         this.playerName = playerName;
     }
 
-    public void move(){
+    public String move(){
+        if (isActive) {
+
+        }
 
     }
 

@@ -54,4 +54,13 @@ public class Field {
             cells[fieldHeight/2][i].setCellValue(charsFromWord[i]);
         }
     }
+
+    public boolean containsEmptyCells(){
+        for (int i = 0; i < fieldHeight; i++) {
+            for (int j = 0; j < fieldWidth; j++) {
+                if (cells[i][j].getCellValue() == null) return true;
+            }
+        }
+        return false;
+    }
 }
