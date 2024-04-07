@@ -13,19 +13,27 @@ public class Dictionary {
         this.filePath = filePath;
     }
 
-    public String getWordsFromSource(){
+    public boolean wasFormedBefore(String word){
+        return words.contains(word);
+    }
 
-//        try(BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath)))) {
-//            words = new ArrayList<>(bufferedReader.lines())''
-//            while (bufferedReader.ready()){
-//                bufferedReader.readLine();
-//            }
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
+    public void getWordsFromSource(){
 
+        try(BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath)))) {
+            words = new ArrayList<>();
+            while (bufferedReader.ready()){
+                words.add(bufferedReader.readLine());
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-
+    public String findValidWordForLength(int length){
+        for (String word:words) {
+            if (word.length() == length) return word;
+        }
         return null;
     }
+
 }
