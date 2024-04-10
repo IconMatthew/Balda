@@ -1,6 +1,12 @@
 package ru.jadae.entities;
 
-import java.io.*;
+import ru.jadae.Exceptions.InitException;
+import ru.jadae.enums.Languages;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,20 +14,33 @@ public class Dictionary {
 
     private final String filePath;
     private List<String> words;
+    private List<String> formedWords;
+    private final Alphabet alphabet;
 
-    public Dictionary(String filePath) {
+    public Dictionary(String filePath, Languages language) {
         this.filePath = filePath;
+        this.alphabet = new Alphabet(language);
+        getWordsFromSource();
     }
 
-    public boolean wasFormedBefore(String word){
-        return words.contains(word);
+    public boolean wasFormedBefore(String word) {
+        if (formedWords == null) return false;
+        return formedWords.contains(word);
     }
 
-    public void getWordsFromSource(){
+    public void addFormedWord(String word) {
+        if (formedWords == null) {
+            formedWords = new ArrayList<>();
+        }
 
-        try(BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath)))) {
+        formedWords.add(word);
+    }
+
+    public void getWordsFromSource() {
+
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath)))) {
             words = new ArrayList<>();
-            while (bufferedReader.ready()){
+            while (bufferedReader.ready()) {
                 words.add(bufferedReader.readLine());
             }
         } catch (IOException e) {
@@ -29,11 +48,23 @@ public class Dictionary {
         }
     }
 
-    public String findValidWordForLength(int length){
-        for (String word:words) {
+    public String findValidWordForLength(int length) {
+        for (String word : words) {
             if (word.length() == length) return word;
         }
-        return null;
+        throw new InitException("Invalid field length: no word in dictionary for length" + length + ". Try recreate field");
+    }
+
+    public boolean letterIsPartOfAlphabet(Character letter) {
+        return alphabet.containsLetter(letter);
+    }
+
+    public boolean containsWord(String word) {
+        return words.contains(word);
+    }
+
+    public void addWordToDictionary(String word) {
+        words.add(word);
     }
 
 }

@@ -9,37 +9,37 @@ public class AlphabetTests {
 
     @Test
     void isValidCharTest1(){
-        boolean valid = alphabet.isValidLetter('в');
+        boolean valid = alphabet.containsLetter('в');
         Assertions.assertTrue(valid);
     }
 
     @Test
     void isNotValidCharTest1(){
-        boolean valid = alphabet.isValidLetter('`');
+        boolean valid = alphabet.containsLetter('`');
         Assertions.assertFalse(valid);
     }
 
     @Test
     void isValidCharTest2(){
-        boolean valid = alphabet.isValidLetter('а');
+        boolean valid = alphabet.containsLetter('а');
         Assertions.assertTrue(valid);
     }
 
     @Test
     void isNotValidCharTest2(){
-        boolean valid = alphabet.isValidLetter('4');
+        boolean valid = alphabet.containsLetter('4');
         Assertions.assertFalse(valid);
     }
 
     @Test
     void isValidCharTest3CapitalLetter(){
-        boolean valid = alphabet.isValidLetter('А');
+        boolean valid = alphabet.containsLetter('А');
         Assertions.assertTrue(valid);
     }
 
     @Test
     void isNotValidCharTest3CapitalLetter(){
-        boolean valid = alphabet.isValidLetter('F');
+        boolean valid = alphabet.containsLetter('F');
         Assertions.assertFalse(valid);
     }
 

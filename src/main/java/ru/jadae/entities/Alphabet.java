@@ -13,7 +13,7 @@ public class Alphabet {
         this.characters = languages.getCharacters();
     }
 
-    public boolean isValidLetter(Character character){
+    public boolean containsLetter(Character character){
         return characters.contains(character.toString().toLowerCase());
     }
 }
