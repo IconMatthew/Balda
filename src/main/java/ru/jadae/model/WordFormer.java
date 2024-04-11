@@ -23,7 +23,7 @@ public class WordFormer {
         }
     }
 
-    public String finishWordFormation() {
+    public String finishWordFormation(Cell cellWithAddedLetter) {
         List<Character> wordCharList = queueOfCells.stream().map(Cell::getCellValue).toList();
         StringBuilder word = new StringBuilder();
 
@@ -31,13 +31,21 @@ public class WordFormer {
             word.append(character);
         }
 
-        if (!dictionary.containsWord(word.toString()) || dictionary.wasFormedBefore(word.toString())) {
+        if (!dictionary.containsWord(word.toString())
+                || dictionary.wasFormedBefore(word.toString())
+                || !queueOfCells.contains(cellWithAddedLetter)) {
             throw new InvalidFormedWord();
         }
 
         dictionary.addFormedWord(word.toString());
 
         return word.toString();
+    }
+
+    public void deleteLastSelectedCell() {
+        if (!queueOfCells.isEmpty()) {
+            this.queueOfCells.remove(queueOfCells.get(queueOfCells.size() - 1));
+        }
     }
 
     public void dropSubSequenceOfSelectedCells() {

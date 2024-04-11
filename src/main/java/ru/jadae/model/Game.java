@@ -14,6 +14,7 @@ public class Game {
     public Game(List<Player> players, Field field) {
         this.players = players;
         this.field = field;
+        changePlayersStatus();
     }
 
     public void saveWordForPlayer(String word, Player player) {
@@ -29,28 +30,44 @@ public class Game {
         checkGameEnd();
     }
 
-    private void checkGameEnd() {
+//    private void gameCycle() {
+//        while (!checkGameEnd()) {
+//            changePlayersStatus();
+//        }
+//    }
 
+    private boolean checkGameEnd() {
+        if (!this.field.containsEmptyCells()) {
+            Map<Player, Integer> playerToScore = detectWinner();
+            if (playerToScore.size() > 1) {
+                System.out.println("Ничья!\n"
+                        + "Очки для игрока - " + players.get(0).getPlayerName() + ": " + playerToScore.get(players.get(0)) + "\n"
+                        + "Очки для игрока - " + players.get(1).getPlayerName() + ": " + playerToScore.get(players.get(1)));
+            } else {
+                Player winner = playerToScore.containsKey(players.get(0)) ? players.get(0) : players.get(1);
+                System.out.println("Победил " + winner + "\n" +
+                        "Очки: " + playerToScore.get(winner));
+            }
+            return true;
+        }
+        return false;
     }
 
     private Map<Player, Integer> detectWinner() {
-        Map<Player, Integer> playerToScore = new HashMap<>(2);
+        Map<Player, Integer> winners = new HashMap<>();
+        int maxScore = Integer.MIN_VALUE;
 
         for (Map.Entry<Player, List<String>> entry : playerListMap.entrySet()) {
-            playerToScore.put(entry.getKey(), entry.getValue().stream().mapToInt(String::length).sum());
+            Player player = entry.getKey();
+            int score = entry.getValue().stream().mapToInt(String::length).sum();
+
+            if (score >= maxScore) {
+                maxScore = score;
+                winners.put(player, score);
+            }
         }
 
-        return playerToScore;
-    }
-
-    public void startGame() {
-        if (gameIsStarted) return;
-
-        changePlayersStatus();
-
-        //TODO:тело метода
-
-        gameIsStarted = true;
+        return winners;
     }
 
     private Player changePlayersStatus() {

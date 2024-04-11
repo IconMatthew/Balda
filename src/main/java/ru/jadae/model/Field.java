@@ -16,11 +16,11 @@ public class Field {
 
     private void fillFieldWithCells() {
 
-        cells = new Cell[fieldHeight][fieldHeight];
+        cells = new Cell[fieldHeight][fieldWidth];
 
         for (int i = 0; i < fieldHeight; i++) {
             for (int j = 0; j < fieldWidth; j++) {
-                cells[i][j] = new Cell(i, j);
+                cells[i][j] = new Cell();
             }
         }
 

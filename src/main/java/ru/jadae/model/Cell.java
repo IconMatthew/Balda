@@ -9,16 +9,13 @@ import java.util.List;
 @Getter
 @Setter
 public class Cell {
-    private final int rowIndex;
-    private final int columnIndex;
+
     private boolean isActive = false;
     private List<Cell> neighbours = new ArrayList<>();
 
     private Character cellValue;
 
-    public Cell(int rowIndex, int columnIndex) {
-        this.rowIndex = rowIndex;
-        this.columnIndex = columnIndex;
+    public Cell() {
     }
 
     public void addNeighbour(Cell cell) {

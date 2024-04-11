@@ -10,6 +10,7 @@ import ru.jadae.exceptions.StepInterruptedException;
 public class Player {
     private final String playerName;
     private boolean isActive = false;
+    private Cell cellToAddLetter;
 
     private boolean firstStepIsDone = false;
     private boolean secondStepIsDone = false;
@@ -30,6 +31,7 @@ public class Player {
         if (!cell.isActive() && cell.hasFilledNeighbours()) {
             cell.setActive(true);
             firstStepIsDone = true;
+            cellToAddLetter = cell;
         }
 
     }
@@ -45,6 +47,7 @@ public class Player {
             cell.setActive(false);
             secondStepIsDone = true;
         }
+
     }
 
     public void setCellActiveForFormingWord(Cell cell) {
@@ -53,7 +56,7 @@ public class Player {
         }
         if (thirdStepIsDone) throw new StepInterruptedException();
 
-        this.wordFormer.addCellLetterToWord(cell);
+        wordFormer.addCellLetterToWord(cell);
     }
 
     public void submitStepFinished() {
@@ -63,17 +66,35 @@ public class Player {
         if (thirdStepIsDone) throw new StepInterruptedException();
 
         try {
-            String word = this.wordFormer.finishWordFormation();
+            String word = wordFormer.finishWordFormation(cellToAddLetter);
             thirdStepIsDone = true;
             game.saveWordForPlayer(word, this);
+
+            wordFormer.dropSubSequenceOfSelectedCells();
+            cellToAddLetter = null;
+
+            firstStepIsDone = false;
+            secondStepIsDone = false;
+
         } catch (InvalidFormedWord e) {
             System.out.println(e.getMessage());
-            wordFormer.dropSubSequenceOfSelectedCells();
+        } finally {
+            thirdStepIsDone = false;
         }
     }
 
-    public void cancelMove(){
-        //if (firstStepIsDone)
+    public void cancelStep() {
+        if (secondStepIsDone) {
+            wordFormer.deleteLastSelectedCell();
+            firstStepIsDone = false;
+        } else if (firstStepIsDone) {
+            wordFormer.deleteLastSelectedCell();
+            firstStepIsDone = false;
+        }
+    }
+
+    public void skipMove() {
+        game.saveWordForPlayer("", this);
     }
 
 }

@@ -1,15 +1,41 @@
 package ru.jadae.builder;
 
+import ru.jadae.enums.Languages;
 import ru.jadae.exceptions.InitException;
 import ru.jadae.model.*;
-import ru.jadae.enums.Languages;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
+import java.util.Properties;
 
 public class GameBuilder {
-    private final Dictionary dictionary = new Dictionary("sampleFilePath", Languages.RUS);
+
+    private Dictionary dictionary;
     private List<Player> players;
     private Field field;
     private Game game;
+
+    public GameBuilder() {
+        Properties properties = new Properties();
+        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("application.properties")) {
+            properties.load(inputStream);
+            String filePath = properties.getProperty("dictionary1.filepath");
+            String alphabetStr = properties.getProperty("dictionary1.alphabet");
+
+            if ("RUS".equals(alphabetStr)) {
+                this.dictionary = new Dictionary(filePath, Languages.RUS);
+            } else if ("ENG".equals(alphabetStr)) {
+                this.dictionary = new Dictionary(filePath, Languages.ENG);
+            } else {
+                throw new IllegalArgumentException("Unknown alphabet: " + alphabetStr);
+            }
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            this.dictionary = null;
+        }
+    }
 
     public void setField(int fieldHeight, int fieldWidth) {
         if (field != null) throw new InitException("You've already set field parameters");
@@ -34,6 +60,5 @@ public class GameBuilder {
         if (this.field == null) throw new InitException("Create field first");
 
         this.game = new Game(players, field);
-        this.game.startGame();
     }
 }

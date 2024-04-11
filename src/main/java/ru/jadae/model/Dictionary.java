@@ -1,7 +1,7 @@
 package ru.jadae.model;
 
-import ru.jadae.exceptions.InitException;
 import ru.jadae.enums.Languages;
+import ru.jadae.exceptions.InitException;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -52,7 +52,7 @@ public class Dictionary {
         for (String word : words) {
             if (word.length() == length) return word;
         }
-        throw new InitException("Invalid field length: no word in dictionary for length" + length + ". Try recreate field");
+        throw new InitException("Invalid field length: no word in dictionary for length = " + length + ". Try recreate field");
     }
 
     public boolean letterIsPartOfAlphabet(Character letter) {
