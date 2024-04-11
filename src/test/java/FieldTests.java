@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.jadae.entities.Cell;
-import ru.jadae.entities.Field;
+import ru.jadae.model.Cell;
+import ru.jadae.model.Field;
 
 import java.util.List;
 

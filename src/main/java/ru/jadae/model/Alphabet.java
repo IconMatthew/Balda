@@ -1,4 +1,4 @@
-package ru.jadae.entities;
+package ru.jadae.model;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,9 +1,9 @@
-package ru.jadae.entities;
+package ru.jadae.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import ru.jadae.Exceptions.InvalidFormedWord;
-import ru.jadae.Exceptions.StepInterruptedException;
+import ru.jadae.exceptions.InvalidFormedWord;
+import ru.jadae.exceptions.StepInterruptedException;
 
 @Getter
 @Setter
@@ -70,6 +70,10 @@ public class Player {
             System.out.println(e.getMessage());
             wordFormer.dropSubSequenceOfSelectedCells();
         }
+    }
+
+    public void cancelMove(){
+        //if (firstStepIsDone)
     }
 
 }

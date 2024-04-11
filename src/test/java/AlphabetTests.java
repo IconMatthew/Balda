@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.jadae.entities.Alphabet;
+import ru.jadae.model.Alphabet;
 import ru.jadae.enums.Languages;
 
 public class AlphabetTests {

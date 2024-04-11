@@ -1,6 +1,6 @@
-package ru.jadae.entities;
+package ru.jadae.model;
 
-import ru.jadae.Exceptions.InitException;
+import ru.jadae.exceptions.InitException;
 import ru.jadae.enums.Languages;
 
 import java.io.BufferedReader;

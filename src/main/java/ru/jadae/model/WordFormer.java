@@ -1,7 +1,7 @@
-package ru.jadae.entities;
+package ru.jadae.model;
 
 import lombok.Getter;
-import ru.jadae.Exceptions.InvalidFormedWord;
+import ru.jadae.exceptions.InvalidFormedWord;
 
 import java.util.ArrayList;
 import java.util.List;

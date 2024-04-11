@@ -1,9 +1,8 @@
 package ru.jadae.builder;
 
-import ru.jadae.Exceptions.InitException;
-import ru.jadae.entities.*;
+import ru.jadae.exceptions.InitException;
+import ru.jadae.model.*;
 import ru.jadae.enums.Languages;
-
 import java.util.List;
 
 public class GameBuilder {

@@ -1,4 +1,4 @@
-package ru.jadae.entities;
+package ru.jadae.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,8 +9,6 @@ public class Game {
     private final Map<Player, List<String>> playerListMap = new HashMap<>();
     private final List<Player> players;
     private final Field field;
-
-    //TODO:убрать dictionary из игры и добавить в конструктор данные игроков
     private boolean gameIsStarted = false;
 
     public Game(List<Player> players, Field field) {
@@ -27,6 +25,12 @@ public class Game {
         }
         words.add(word);
         playerListMap.put(player, words);
+
+        checkGameEnd();
+    }
+
+    private void checkGameEnd() {
+
     }
 
     private Map<Player, Integer> detectWinner() {
@@ -41,6 +45,8 @@ public class Game {
 
     public void startGame() {
         if (gameIsStarted) return;
+
+        changePlayersStatus();
 
         //TODO:тело метода
 

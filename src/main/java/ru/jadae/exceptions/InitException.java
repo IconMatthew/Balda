@@ -1,4 +1,4 @@
-package ru.jadae.Exceptions;
+package ru.jadae.exceptions;
 
 public class InitException extends RuntimeException {
 
