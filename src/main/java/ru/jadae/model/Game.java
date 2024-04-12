@@ -1,5 +1,7 @@
 package ru.jadae.model;
 
+import ru.jadae.in.PlayerActionReader;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,44 +11,110 @@ public class Game {
     private final Map<Player, List<String>> playerListMap = new HashMap<>();
     private final List<Player> players;
     private final Field field;
-    private boolean gameIsStarted = false;
+    private final PlayerActionReader playerActionReader;
+    private boolean breakTheGameFlow = false;
 
-    public Game(List<Player> players, Field field) {
+    public Game(List<Player> players, Field field, PlayerActionReader playerActionReader) {
         this.players = players;
         this.field = field;
-        changePlayersStatus();
+        this.playerActionReader = playerActionReader;
     }
 
     public void saveWordForPlayer(String word, Player player) {
         List<String> words;
-        if (this.playerListMap.containsKey(player)) {
+        if (!this.playerListMap.containsKey(player)) {
             words = new ArrayList<>();
         } else {
             words = playerListMap.get(player);
         }
         words.add(word);
         playerListMap.put(player, words);
-
-        checkGameEnd();
     }
 
-//    private void gameCycle() {
-//        while (!checkGameEnd()) {
-//            changePlayersStatus();
-//        }
-//    }
+    public void gameCycle() {
+        Player activePlayer = changePlayersStatus();
+
+        while (!checkGameEnd()) {
+            System.out.println("//---------- Current player - " + activePlayer.getPlayerName() + " ----------//\n" +
+                    "Actions available:\n" +
+                    "Set cell active for inserting letter (1)\n" +
+                    "Enter letter into cell (2)\n" +
+                    "Select cell for word formation (3)\n" +
+                    "Submit finishing move (4)\n" +
+                    "Cancel move (5)\n" +
+                    "Skip move (6)\n" +
+                    "Violate the game flow (7)");
+            String action = playerActionReader.readUserAction();
+
+            switch (action) {
+                case "1" -> {
+                    try {
+                        System.out.println("Enter cell coords");
+                        int[] params = playerActionReader.readHeightAndWidth();
+                        activePlayer.setCellActiveForInsertingLetter(field.getCellByPosIndexes(params[0], params[1]));
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                case "2" -> {
+                    try {
+                        System.out.println("Enter letter");
+                        Character letter = playerActionReader.readLetter();
+                        activePlayer.enterLetterToCell(letter);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                case "3" -> {
+                    try {
+                        System.out.println("Enter cell coords");
+                        int[] params = playerActionReader.readHeightAndWidth();
+                        activePlayer.addCellToWord(field.getCellByPosIndexes(params[0], params[1]));
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                case "4" -> {
+                    try {
+                        activePlayer.submitMoveFinished();
+                        activePlayer = changePlayersStatus();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                case "5" -> {
+                    try {
+                        activePlayer.cancelMove();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                case "6" -> {
+                    try {
+                        activePlayer.skipMove();
+                        activePlayer = changePlayersStatus();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                case "7" -> this.breakTheGameFlow = true;
+            }
+        }
+    }
 
     private boolean checkGameEnd() {
-        if (!this.field.containsEmptyCells()) {
+        if (!this.field.containsEmptyCells() || this.breakTheGameFlow) {
             Map<Player, Integer> playerToScore = detectWinner();
             if (playerToScore.size() > 1) {
                 System.out.println("Ничья!\n"
                         + "Очки для игрока - " + players.get(0).getPlayerName() + ": " + playerToScore.get(players.get(0)) + "\n"
                         + "Очки для игрока - " + players.get(1).getPlayerName() + ": " + playerToScore.get(players.get(1)));
             } else {
-                Player winner = playerToScore.containsKey(players.get(0)) ? players.get(0) : players.get(1);
-                System.out.println("Победил " + winner + "\n" +
-                        "Очки: " + playerToScore.get(winner));
+                if (!playerToScore.isEmpty()) {
+                    Player winner = playerToScore.containsKey(players.get(0)) ? players.get(0) : players.get(1);
+                    System.out.println("Победил " + winner.getPlayerName() + "\n" +
+                            "Очки: " + playerToScore.get(winner));
+                } else System.out.println("Победитель не выявлен");
             }
             return true;
         }
@@ -61,8 +129,11 @@ public class Game {
             Player player = entry.getKey();
             int score = entry.getValue().stream().mapToInt(String::length).sum();
 
-            if (score >= maxScore) {
+            if (score > maxScore) {
+                winners = new HashMap<>();
                 maxScore = score;
+                winners.put(player, score);
+            } else if (score == maxScore) {
                 winners.put(player, score);
             }
         }
@@ -84,4 +155,5 @@ public class Game {
             return players.get(0);
         }
     }
+
 }
