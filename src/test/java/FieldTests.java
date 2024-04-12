@@ -7,7 +7,7 @@ import java.util.List;
 
 public class FieldTests {
     @Test
-    void checkHeightAndWidth(){
+    void checkHeightAndWidth() {
         int initHeight = 5;
         int initWidth = 5;
         Field field = new Field(initHeight, initWidth);
@@ -15,8 +15,9 @@ public class FieldTests {
         Assertions.assertEquals(initHeight, field.getFieldHeight());
         Assertions.assertEquals(initWidth, field.getFieldWidth());
     }
+
     @Test
-    void checkNeighbourKnowledgeFor00Cell(){
+    void checkNeighbourKnowledgeFor00Cell() {
         int initHeight = 6;
         int initWidth = 6;
         Field field = new Field(initHeight, initWidth);
@@ -32,7 +33,7 @@ public class FieldTests {
     }
 
     @Test
-    void checkNeighbourKnowledgeFor33Cell(){
+    void checkNeighbourKnowledgeFor33Cell() {
         int initHeight = 5;
         int initWidth = 5;
         Field field = new Field(initHeight, initWidth);
@@ -49,7 +50,7 @@ public class FieldTests {
     }
 
     @Test
-    void insertWordIntoMiddleRowEvenHeight(){
+    void insertWordIntoMiddleRowEvenHeight() {
         String word = "Баня";
         char[] expectedChars = word.toLowerCase().toCharArray();
 
@@ -61,14 +62,14 @@ public class FieldTests {
         Cell[][] cells = field.getCells();
 
         for (int i = 0; i < initWidth; i++) {
-            Assertions.assertEquals(expectedChars[i], cells[initHeight/2][i].getCellValue());
-            Assertions.assertNotEquals(expectedChars[i], cells[initHeight/2 + 1][i].getCellValue());
-            Assertions.assertNotEquals(expectedChars[i], cells[initHeight/2 - 1][i].getCellValue());
+            Assertions.assertEquals(expectedChars[i], cells[initHeight / 2][i].getCellValue());
+            Assertions.assertNotEquals(expectedChars[i], cells[initHeight / 2 + 1][i].getCellValue());
+            Assertions.assertNotEquals(expectedChars[i], cells[initHeight / 2 - 1][i].getCellValue());
         }
     }
 
     @Test
-    void insertWordIntoMiddleRowOddHeight(){
+    void insertWordIntoMiddleRowOddHeight() {
         String word = "Замок";
         char[] expectedChars = word.toLowerCase().toCharArray();
 
@@ -80,16 +81,15 @@ public class FieldTests {
         Cell[][] cells = field.getCells();
 
         for (int i = 0; i < initWidth; i++) {
-            Assertions.assertEquals(expectedChars[i], cells[initHeight/2][i].getCellValue());
-            Assertions.assertNotEquals(expectedChars[i], cells[initHeight/2 + 1][i].getCellValue());
-            Assertions.assertNotEquals(expectedChars[i], cells[initHeight/2 - 1][i].getCellValue());
+            Assertions.assertEquals(expectedChars[i], cells[initHeight / 2][i].getCellValue());
+            Assertions.assertNotEquals(expectedChars[i], cells[initHeight / 2 + 1][i].getCellValue());
+            Assertions.assertNotEquals(expectedChars[i], cells[initHeight / 2 - 1][i].getCellValue());
         }
     }
 
     @Test
-    void insertWordOfLength4IntoMiddleRowOfLength5OddHeightAnd(){
+    void insertWordOfLength4IntoMiddleRowOfLength5OddHeightAnd() {
         String word = "Баня";
-        char[] expectedChars = word.toLowerCase().toCharArray();
 
         int initHeight = 5;
         int initWidth = 5;
@@ -99,11 +99,54 @@ public class FieldTests {
 
         try {
             field.writeTheWordIntoMiddleRow(word);
-        }catch(IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             resultMessage = e.getMessage();
         }
 
         Assertions.assertEquals("Invalid word length", resultMessage);
+    }
+
+    @Test
+    void getCellByIndexes() {
+        int initHeight = 5;
+        int initWidth = 5;
+        int heightIndex = 2;
+        int widthIndex = 3;
+        String word = "слово";
+        Character expectedLetter = 'в';
+
+        Field field = new Field(initHeight, initWidth);
+        field.writeTheWordIntoMiddleRow(word);
+        Cell cell = field.getCellByPosIndexes(heightIndex, widthIndex);
+
+        Assertions.assertEquals(expectedLetter, cell.getCellValue());
+    }
+
+    @Test
+    void checkIfFieldHasEmptyCellsTrue() {
+        int initHeight = 5;
+        int initWidth = 5;
+        String word = "слово";
+
+        Field field = new Field(initHeight, initWidth);
+        field.writeTheWordIntoMiddleRow(word);
+
+        Assertions.assertTrue(field.containsEmptyCells());
+    }
+
+    @Test
+    void checkIfFieldHasEmptyCellsFalse() {
+        int initHeight = 5;
+        int initWidth = 5;
+
+        Field field = new Field(initHeight, initWidth);
+        for (Cell[] cells1 : field.getCells()) {
+            for (Cell cell : cells1) {
+                cell.setCellValue('a');
+            }
+        }
+
+        Assertions.assertFalse(field.containsEmptyCells());
     }
 
 }
