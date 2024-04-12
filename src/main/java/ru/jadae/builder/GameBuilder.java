@@ -1,7 +1,9 @@
 package ru.jadae.builder;
 
+import lombok.Getter;
 import ru.jadae.enums.Languages;
 import ru.jadae.exceptions.FieldInitException;
+import ru.jadae.exceptions.InitException;
 import ru.jadae.exceptions.PlayerInitException;
 import ru.jadae.in.PlayerActionReader;
 import ru.jadae.model.*;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+@Getter
 public class GameBuilder {
 
     private Dictionary dictionary;
@@ -23,6 +26,12 @@ public class GameBuilder {
     public GameBuilder() {
         setDictionary();
         this.playerActionReader = new PlayerActionReader();
+        initGame();
+    }
+
+    public GameBuilder(PlayerActionReader playerActionReader) {
+        setDictionary();
+        this.playerActionReader = playerActionReader;
         initGame();
     }
 
@@ -52,6 +61,7 @@ public class GameBuilder {
         System.out.println("Enter field height and width dividing them with space [5-10]");
 
         int[] params = playerActionReader.readHeightAndWidth();
+        if (params[0] < 5 || params[1] < 5) throw new InitException("Invalid field params");
         this.field = new Field(params[0], params[1]);
         this.field.writeTheWordIntoMiddleRow(dictionary.findValidWordForLength(params[1]));
 
@@ -83,6 +93,6 @@ public class GameBuilder {
         for (Player player : players) {
             player.setGame(this.game);
         }
-        this.game.gameCycle();
     }
+
 }

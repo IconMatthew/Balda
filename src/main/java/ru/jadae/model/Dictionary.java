@@ -63,6 +63,8 @@ public class Dictionary {
         return words.contains(word);
     }
 
+
+    //TODO:Controller for method and tests for it
     public void addWordToDictionary(String word) {
         words.add(word);
     }

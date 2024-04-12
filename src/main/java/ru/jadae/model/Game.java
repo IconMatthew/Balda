@@ -1,5 +1,6 @@
 package ru.jadae.model;
 
+import lombok.Getter;
 import ru.jadae.in.PlayerActionReader;
 
 import java.util.ArrayList;
@@ -7,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Getter
 public class Game {
     private final Map<Player, List<String>> playerListMap = new HashMap<>();
     private final List<Player> players;
