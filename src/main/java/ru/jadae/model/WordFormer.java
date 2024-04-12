@@ -2,6 +2,7 @@ package ru.jadae.model;
 
 import lombok.Getter;
 import ru.jadae.exceptions.InvalidFormedWord;
+import ru.jadae.exceptions.StepInterruptedException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +18,16 @@ public class WordFormer {
         this.dictionary = dictionary;
     }
 
-    public void addCellLetterToWord(Cell cell) {
-        if (cell.isActive() && cell.hasFilledNeighbours() && cell.getCellValue() != null) {
+    public void addCellToWordQueue(Cell cell) {
+        if (!cell.isActive() && cell.hasFilledNeighbours() && cell.getCellValue() != null) {
+            if (!queueOfCells.isEmpty() && !queueOfCells.get(queueOfCells.size() - 1).isNeighbourToCell(cell)) {
+                throw new StepInterruptedException("You cannot chose cell that is not neighbour to the previous one");
+            }
             queueOfCells.add(cell);
+        } else if (!cell.hasFilledNeighbours()) {
+            throw new StepInterruptedException("You cannot chose cell that has no filled neighbours");
+        } else if (cell.getCellValue() == null) {
+            throw new StepInterruptedException("You cannot chose empty cell");
         }
     }
 

@@ -20,7 +20,7 @@ public class Field {
 
         for (int i = 0; i < fieldHeight; i++) {
             for (int j = 0; j < fieldWidth; j++) {
-                cells[i][j] = new Cell();
+                cells[i][j] = new Cell(i, j);
             }
         }
 
@@ -62,5 +62,12 @@ public class Field {
             }
         }
         return false;
+    }
+
+    public Cell getCellByPosIndexes(int heightPos, int widthPos) {
+        if (this.fieldHeight < heightPos + 1 || this.fieldWidth < widthPos + 1) {
+            throw new IllegalArgumentException("Invalid position index/s for cell");
+        }
+        return cells[heightPos][widthPos];
     }
 }

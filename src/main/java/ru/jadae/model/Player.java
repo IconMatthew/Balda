@@ -27,39 +27,47 @@ public class Player {
     public void setCellActiveForInsertingLetter(Cell cell) {
 
         if (secondStepIsDone || thirdStepIsDone) throw new StepInterruptedException();
+        if (cellToAddLetter != null)
+            throw new StepInterruptedException("You've already picked cell. Use cancel move option.");
 
-        if (!cell.isActive() && cell.hasFilledNeighbours()) {
+        if (!cell.isActive() && cell.hasFilledNeighbours() && cell.getCellValue() == null) {
             cell.setActive(true);
             firstStepIsDone = true;
             cellToAddLetter = cell;
+        } else if (!cell.hasFilledNeighbours()) {
+            throw new StepInterruptedException("This cell has no filled neighbours! Pick another one.");
+        } else if (cell.getCellValue() != null) {
+            throw new StepInterruptedException("This cell is not empty. Pick another one.");
         }
 
     }
 
-    public void enterLetterToCell(Cell cell, Character letter) {
+    public void enterLetterToCell(Character letter) {
         if (!firstStepIsDone) {
             throw new StepInterruptedException("Make sure to pick cell first!");
         }
         if (secondStepIsDone || thirdStepIsDone) throw new StepInterruptedException();
 
-        if (cell.isActive() && wordFormer.getDictionary().letterIsPartOfAlphabet(letter)) {
-            cell.setCellValue(letter);
-            cell.setActive(false);
+        if (cellToAddLetter.isActive() && wordFormer.getDictionary().letterIsPartOfAlphabet(letter)) {
+            cellToAddLetter.setCellValue(letter);
+            cellToAddLetter.setActive(false);
             secondStepIsDone = true;
+        } else if (!wordFormer.getDictionary().letterIsPartOfAlphabet(letter)) {
+            throw new StepInterruptedException("Incorrect letter");
         }
 
     }
 
-    public void setCellActiveForFormingWord(Cell cell) {
+    public void addCellToWord(Cell cell) {
         if (!firstStepIsDone && !secondStepIsDone) {
             throw new StepInterruptedException("Make sure to pick cell and enter letter first!");
         }
         if (thirdStepIsDone) throw new StepInterruptedException();
 
-        wordFormer.addCellLetterToWord(cell);
+        wordFormer.addCellToWordQueue(cell);
     }
 
-    public void submitStepFinished() {
+    public void submitMoveFinished() {
         if (!firstStepIsDone && !secondStepIsDone) {
             throw new StepInterruptedException("Make sure to pick cell, enter letter and form word first!");
         }
@@ -69,12 +77,7 @@ public class Player {
             String word = wordFormer.finishWordFormation(cellToAddLetter);
             thirdStepIsDone = true;
             game.saveWordForPlayer(word, this);
-
-            wordFormer.dropSubSequenceOfSelectedCells();
-            cellToAddLetter = null;
-
-            firstStepIsDone = false;
-            secondStepIsDone = false;
+            finalizeMove();
 
         } catch (InvalidFormedWord e) {
             System.out.println(e.getMessage());
@@ -83,18 +86,29 @@ public class Player {
         }
     }
 
-    public void cancelStep() {
-        if (secondStepIsDone) {
+    private void finalizeMove() {
+        wordFormer.dropSubSequenceOfSelectedCells();
+        cellToAddLetter.setActive(false);
+        cellToAddLetter = null;
+
+        firstStepIsDone = false;
+        secondStepIsDone = false;
+    }
+
+    public void cancelMove() {
+        if (secondStepIsDone && !wordFormer.getQueueOfCells().isEmpty()) {
             wordFormer.deleteLastSelectedCell();
-            firstStepIsDone = false;
+        } else if (secondStepIsDone) {
+            secondStepIsDone = false;
+            this.cellToAddLetter.setCellValue(null);
         } else if (firstStepIsDone) {
-            wordFormer.deleteLastSelectedCell();
             firstStepIsDone = false;
+            this.cellToAddLetter.setActive(false);
+            cellToAddLetter = null;
         }
     }
 
     public void skipMove() {
         game.saveWordForPlayer("", this);
     }
-
 }
