@@ -8,8 +8,8 @@ import java.util.Arrays;
 public class PlayerActionReader {
     private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-    public PlayerActionReader(BufferedReader reader1) {
-        this.reader = reader1;
+    public PlayerActionReader(BufferedReader reader) {
+        this.reader = reader;
     }
 
     public PlayerActionReader() {
