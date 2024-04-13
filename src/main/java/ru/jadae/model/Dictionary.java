@@ -63,10 +63,14 @@ public class Dictionary {
         return words.contains(word);
     }
 
-
-    //TODO:Controller for method and tests for it
     public void addWordToDictionary(String word) {
         words.add(word);
     }
 
+    public boolean isCorrectWord(String word) {
+        for (char letter : word.toCharArray()) {
+            if (!alphabet.containsLetter(letter)) return false;
+        }
+        return true;
+    }
 }

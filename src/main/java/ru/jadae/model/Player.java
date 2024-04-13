@@ -5,6 +5,9 @@ import lombok.Setter;
 import ru.jadae.exceptions.InvalidFormedWord;
 import ru.jadae.exceptions.StepInterruptedException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 public class Player {
@@ -16,8 +19,9 @@ public class Player {
     private boolean secondStepIsDone = false;
     private boolean thirdStepIsDone = false;
 
-    private Game game;
     private final WordFormer wordFormer;
+    private List<String> formedWords = new ArrayList<>();
+
 
     public Player(String playerName, WordFormer wordFormer) {
         this.playerName = playerName;
@@ -76,7 +80,7 @@ public class Player {
         try {
             String word = wordFormer.finishWordFormation(cellToAddLetter);
             thirdStepIsDone = true;
-            game.saveWordForPlayer(word, this);
+            formedWords.add(word);
             finalizeMove();
 
         } catch (InvalidFormedWord e) {
@@ -88,7 +92,7 @@ public class Player {
 
     private void finalizeMove() {
         wordFormer.dropSubSequenceOfSelectedCells();
-        cellToAddLetter.setActive(false);
+        if (cellToAddLetter != null) cellToAddLetter.setActive(false);
         cellToAddLetter = null;
 
         firstStepIsDone = false;
@@ -109,6 +113,16 @@ public class Player {
     }
 
     public void skipMove() {
-        game.saveWordForPlayer("", this);
+        finalizeMove();
+        formedWords.add("");
+    }
+
+    public void addWordToDictionary(String word) {
+        String lowercaseWord = word.toLowerCase();
+        if (wordFormer.getDictionary().containsWord(lowercaseWord)) {
+            throw new IllegalArgumentException("This word is already in dictionary");
+        } else if (wordFormer.getDictionary().isCorrectWord(lowercaseWord)) {
+            wordFormer.getDictionary().addWordToDictionary(lowercaseWord);
+        } else throw new IllegalArgumentException("Invalid symbols are found in word");
     }
 }

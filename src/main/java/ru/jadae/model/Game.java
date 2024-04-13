@@ -3,14 +3,12 @@ package ru.jadae.model;
 import lombok.Getter;
 import ru.jadae.in.PlayerActionReader;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Getter
 public class Game {
-    private final Map<Player, List<String>> playerListMap = new HashMap<>();
     private final List<Player> players;
     private final Field field;
     private final PlayerActionReader playerActionReader;
@@ -20,17 +18,6 @@ public class Game {
         this.players = players;
         this.field = field;
         this.playerActionReader = playerActionReader;
-    }
-
-    public void saveWordForPlayer(String word, Player player) {
-        List<String> words;
-        if (!this.playerListMap.containsKey(player)) {
-            words = new ArrayList<>();
-        } else {
-            words = playerListMap.get(player);
-        }
-        words.add(word);
-        playerListMap.put(player, words);
     }
 
     public void gameCycle() {
@@ -99,7 +86,15 @@ public class Game {
                         System.out.println(e.getMessage());
                     }
                 }
-                case "7" -> this.breakTheGameFlow = true;
+                case "7" -> {
+                    try {
+                        activePlayer.addWordToDictionary(playerActionReader.readUserAction());
+                    } catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                }
+                case "8" -> this.breakTheGameFlow = true;
             }
         }
     }
@@ -127,9 +122,9 @@ public class Game {
         Map<Player, Integer> winners = new HashMap<>();
         int maxScore = Integer.MIN_VALUE;
 
-        for (Map.Entry<Player, List<String>> entry : playerListMap.entrySet()) {
-            Player player = entry.getKey();
-            int score = entry.getValue().stream().mapToInt(String::length).sum();
+        for (Player player : players) {
+
+            int score = player.getFormedWords().stream().mapToInt(String::length).sum();
 
             if (score > maxScore) {
                 winners = new HashMap<>();

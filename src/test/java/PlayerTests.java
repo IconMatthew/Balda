@@ -2,16 +2,16 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ru.jadae.enums.Languages;
 import ru.jadae.exceptions.StepInterruptedException;
-import ru.jadae.in.PlayerActionReader;
-import ru.jadae.model.*;
+import ru.jadae.model.Cell;
+import ru.jadae.model.Dictionary;
+import ru.jadae.model.Player;
+import ru.jadae.model.WordFormer;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-
-import static org.mockito.Mockito.mock;
 
 public class PlayerTests {
 
@@ -124,8 +124,6 @@ public class PlayerTests {
         List<Player> players = new ArrayList<>();
         players.add(player);
 
-        Game game = new Game(players, mock(Field.class), mock(PlayerActionReader.class));
-        player.setGame(game);
         Cell cell = new Cell(0, 0);
         Cell neighbourCell = new Cell(0, 1);
 
@@ -146,17 +144,13 @@ public class PlayerTests {
 
         player.submitMoveFinished();
 
-        Assertions.assertEquals(1, game.getPlayerListMap().get(player).size());
+        Assertions.assertEquals(1, player.getFormedWords().size());
     }
 
     @Test
     void submitMoveFinishedForInvalidWord() {
         Player player = init();
-        List<Player> players = new ArrayList<>();
-        players.add(player);
 
-        Game game = new Game(players, mock(Field.class), mock(PlayerActionReader.class));
-        player.setGame(game);
         Cell cell = new Cell(0, 0);
         Cell neighbourCell = new Cell(0, 1);
 
@@ -176,7 +170,7 @@ public class PlayerTests {
         player.addCellToWord(neighbourCell);
         player.submitMoveFinished();
 
-        Assertions.assertNull(game.getPlayerListMap().get(player));
+        Assertions.assertEquals(0, player.getFormedWords().size());
     }
 
     @Test
@@ -224,11 +218,7 @@ public class PlayerTests {
     @Test
     void cancelMoveForFormingWord() {
         Player player = init();
-        List<Player> players = new ArrayList<>();
-        players.add(player);
 
-        Game game = new Game(players, mock(Field.class), mock(PlayerActionReader.class));
-        player.setGame(game);
         Cell cell = new Cell(0, 0);
         Cell neighbourCell = new Cell(0, 1);
 
@@ -258,11 +248,7 @@ public class PlayerTests {
     @Test
     void skipMove() {
         Player player = init();
-        List<Player> players = new ArrayList<>();
-        players.add(player);
 
-        Game game = new Game(players, mock(Field.class), mock(PlayerActionReader.class));
-        player.setGame(game);
         Cell cell = new Cell(0, 0);
         Cell neighbourCell = new Cell(0, 1);
 
@@ -278,7 +264,7 @@ public class PlayerTests {
 
         player.skipMove();
 
-        Assertions.assertNotNull(game.getPlayerListMap().get(player));
+        Assertions.assertNotEquals(0, player.getFormedWords().size());
     }
 
 
@@ -327,5 +313,27 @@ public class PlayerTests {
         Assertions.assertEquals("This cell has no filled neighbours! Pick another one.", exception.getMessage());
     }
 
+    @Test
+    void addDuplicateWordToDictionary() {
+        Player player = init();
+        String wordToAdd = "слово";
 
+        Assertions.assertThrows(IllegalArgumentException.class, () -> player.addWordToDictionary(wordToAdd));
+    }
+
+    @Test
+    void addInvalidWordToDictionary() {
+        Player player = init();
+        String wordToAdd = "mbn";
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> player.addWordToDictionary(wordToAdd));
+    }
+
+    @Test
+    void addValidWordToDictionary() {
+        Player player = init();
+        String wordToAdd = "МАма";
+        player.addWordToDictionary(wordToAdd);
+        Assertions.assertTrue(player.getWordFormer().getDictionary().containsWord(wordToAdd.toLowerCase()));
+    }
 }

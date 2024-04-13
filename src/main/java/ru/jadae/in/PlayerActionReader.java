@@ -6,7 +6,14 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 
 public class PlayerActionReader {
-    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+    public PlayerActionReader(BufferedReader reader1) {
+        this.reader = reader1;
+    }
+
+    public PlayerActionReader() {
+    }
 
     public String readUserAction() {
         String line;

@@ -21,13 +21,13 @@ public class WordFormer {
     public void addCellToWordQueue(Cell cell) {
         if (!cell.isActive() && cell.hasFilledNeighbours() && cell.getCellValue() != null) {
             if (!queueOfCells.isEmpty() && !queueOfCells.get(queueOfCells.size() - 1).isNeighbourToCell(cell)) {
-                throw new StepInterruptedException("You cannot chose cell that is not neighbour to the previous one");
+                throw new StepInterruptedException("You cannot choose cell that is not neighbour to the previous one");
             }
             queueOfCells.add(cell);
         } else if (!cell.hasFilledNeighbours()) {
-            throw new StepInterruptedException("You cannot chose cell that has no filled neighbours");
+            throw new StepInterruptedException("You cannot choose cell that has no filled neighbours");
         } else if (cell.getCellValue() == null) {
-            throw new StepInterruptedException("You cannot chose empty cell");
+            throw new StepInterruptedException("You cannot choose empty cell");
         }
     }
 

@@ -90,9 +90,6 @@ public class GameBuilder {
         }
 
         this.game = new Game(players, field, playerActionReader);
-        for (Player player : players) {
-            player.setGame(this.game);
-        }
     }
 
 }
