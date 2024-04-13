@@ -20,7 +20,7 @@ public class Dictionary {
     public Dictionary(String filePath, Languages language) {
         this.filePath = filePath;
         this.alphabet = new Alphabet(language);
-        getWordsFromSource();
+        loadWordsFromSource();
     }
 
     public boolean wasFormedBefore(String word) {
@@ -36,7 +36,7 @@ public class Dictionary {
         formedWords.add(word);
     }
 
-    public void getWordsFromSource() {
+    public void loadWordsFromSource() {
 
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath)))) {
             words = new ArrayList<>();
