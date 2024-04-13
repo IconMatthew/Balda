@@ -21,7 +21,7 @@ public class GameBuilder {
     private final List<Player> players = new ArrayList<>(2);
     private Field field;
     private Game game;
-    private PlayerActionReader playerActionReader;
+    private final PlayerActionReader playerActionReader;
 
     public GameBuilder() {
         setDictionary();
