@@ -5,14 +5,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class PlayerActionReader {
+public class PlayerActionListener {
     private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-    public PlayerActionReader(BufferedReader reader) {
+    public PlayerActionListener(BufferedReader reader) {
         this.reader = reader;
     }
 
-    public PlayerActionReader() {
+    public PlayerActionListener() {
     }
 
     public String readUserAction() {
