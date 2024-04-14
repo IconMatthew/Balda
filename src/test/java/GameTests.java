@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.jadae.in.PlayerActionReader;
+import ru.jadae.in.PlayerActionListener;
 import ru.jadae.model.*;
 
 import java.util.ArrayList;
@@ -13,12 +13,12 @@ public class GameTests {
 
     private final Dictionary dictionary = mock(Dictionary.class);
     private final Field field = mock(Field.class);
-    private final PlayerActionReader playerActionReader = mock(PlayerActionReader.class);
+    private final PlayerActionListener playerActionListener = mock(PlayerActionListener.class);
 
     @Test
     void enterCellCoordsMethodCallForGame() {
-        when(playerActionReader.readUserAction()).thenReturn("1");
-        when(playerActionReader.readHeightAndWidth()).thenReturn(new int[]{1, 1});
+        when(playerActionListener.readUserAction()).thenReturn("1");
+        when(playerActionListener.readHeightAndWidth()).thenReturn(new int[]{1, 1});
         when(field.containsEmptyCells()).thenReturn(true)
                 .thenReturn(false);
 
@@ -35,15 +35,15 @@ public class GameTests {
         players.add(new Player("1", new WordFormer(dictionary)));
         players.add(new Player("2", new WordFormer(dictionary)));
 
-        Game game = new Game(players, field, playerActionReader);
+        Game game = new Game(players, field, playerActionListener);
         game.gameCycle();
         Assertions.assertTrue(players.get(0).isFirstStepIsDone());
     }
 
     @Test
     void enterCellCoordsMethodCallForGameInvalid() {
-        when(playerActionReader.readUserAction()).thenReturn("1");
-        when(playerActionReader.readHeightAndWidth()).thenReturn(new int[]{1, 1});
+        when(playerActionListener.readUserAction()).thenReturn("1");
+        when(playerActionListener.readHeightAndWidth()).thenReturn(new int[]{1, 1});
         when(field.containsEmptyCells()).thenReturn(true)
                 .thenReturn(false);
 
@@ -56,7 +56,7 @@ public class GameTests {
         players.add(new Player("1", new WordFormer(dictionary)));
         players.add(new Player("2", new WordFormer(dictionary)));
 
-        Game game = new Game(players, field, playerActionReader);
+        Game game = new Game(players, field, playerActionListener);
         game.gameCycle();
         Assertions.assertFalse(players.get(0).isFirstStepIsDone());
     }
@@ -66,8 +66,8 @@ public class GameTests {
         List<Player> players = new ArrayList<>();
         players.add(new Player("1", new WordFormer(dictionary)));
         players.add(new Player("2", new WordFormer(dictionary)));
-        Game game = new Game(players, field, playerActionReader);
-        when(playerActionReader.readUserAction()).thenReturn("8");
+        Game game = new Game(players, field, playerActionListener);
+        when(playerActionListener.readUserAction()).thenReturn("8");
 
         game.gameCycle();
         Assertions.assertTrue(players.get(0).isActive());
@@ -79,8 +79,8 @@ public class GameTests {
         List<Player> players = new ArrayList<>();
         players.add(new Player("1", new WordFormer(dictionary)));
         players.add(new Player("2", new WordFormer(dictionary)));
-        Game game = new Game(players, field, playerActionReader);
-        when(playerActionReader.readUserAction()).thenReturn("6").thenReturn("8");
+        Game game = new Game(players, field, playerActionListener);
+        when(playerActionListener.readUserAction()).thenReturn("6").thenReturn("8");
         when(field.containsEmptyCells()).thenReturn(true);
 
         game.gameCycle();
@@ -93,8 +93,8 @@ public class GameTests {
         List<Player> players = new ArrayList<>();
         players.add(new Player("1", new WordFormer(dictionary)));
         players.add(new Player("2", new WordFormer(dictionary)));
-        Game game = new Game(players, field, playerActionReader);
-        when(playerActionReader.readUserAction())
+        Game game = new Game(players, field, playerActionListener);
+        when(playerActionListener.readUserAction())
                 .thenReturn("6")
                 .thenReturn("6")
                 .thenReturn("8");

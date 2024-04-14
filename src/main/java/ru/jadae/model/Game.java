@@ -1,7 +1,7 @@
 package ru.jadae.model;
 
 import lombok.Getter;
-import ru.jadae.in.PlayerActionReader;
+import ru.jadae.in.PlayerActionListener;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,13 +11,13 @@ import java.util.Map;
 public class Game {
     private final List<Player> players;
     private final Field field;
-    private final PlayerActionReader playerActionReader;
+    private final PlayerActionListener playerActionListener;
     private boolean breakTheGameFlow = false;
 
-    public Game(List<Player> players, Field field, PlayerActionReader playerActionReader) {
+    public Game(List<Player> players, Field field, PlayerActionListener playerActionListener) {
         this.players = players;
         this.field = field;
-        this.playerActionReader = playerActionReader;
+        this.playerActionListener = playerActionListener;
     }
 
     public void gameCycle() {
@@ -33,13 +33,13 @@ public class Game {
                     "Cancel move (5)\n" +
                     "Skip move (6)\n" +
                     "Violate the game flow (7)");
-            String action = playerActionReader.readUserAction();
+            String action = playerActionListener.readUserAction();
 
             switch (action) {
                 case "1" -> {
                     try {
                         System.out.println("Enter cell coords");
-                        int[] params = playerActionReader.readHeightAndWidth();
+                        int[] params = playerActionListener.readHeightAndWidth();
                         activePlayer.setCellActiveForInsertingLetter(field.getCellByPosIndexes(params[0], params[1]));
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
@@ -48,7 +48,7 @@ public class Game {
                 case "2" -> {
                     try {
                         System.out.println("Enter letter");
-                        Character letter = playerActionReader.readLetter();
+                        Character letter = playerActionListener.readLetter();
                         activePlayer.enterLetterToCell(letter);
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
@@ -57,7 +57,7 @@ public class Game {
                 case "3" -> {
                     try {
                         System.out.println("Enter cell coords");
-                        int[] params = playerActionReader.readHeightAndWidth();
+                        int[] params = playerActionListener.readHeightAndWidth();
                         activePlayer.addCellToWord(field.getCellByPosIndexes(params[0], params[1]));
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
@@ -88,7 +88,7 @@ public class Game {
                 }
                 case "7" -> {
                     try {
-                        activePlayer.addWordToDictionary(playerActionReader.readUserAction());
+                        activePlayer.addWordToDictionary(playerActionListener.readUserAction());
                     } catch (IllegalArgumentException e) {
                         System.out.println(e.getMessage());
                     }

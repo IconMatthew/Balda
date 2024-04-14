@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ru.jadae.builder.GameBuilder;
 import ru.jadae.exceptions.InitException;
-import ru.jadae.in.PlayerActionReader;
+import ru.jadae.in.PlayerActionListener;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -10,7 +10,7 @@ import static org.mockito.Mockito.when;
 public class GameBuilderTests {
     @Test
     void testCreatingField() {
-        PlayerActionReader reader = mock(PlayerActionReader.class);
+        PlayerActionListener reader = mock(PlayerActionListener.class);
         when(reader.readUserAction()).thenReturn("name1").thenReturn("name2");
         when(reader.readHeightAndWidth()).thenReturn(new int[]{5, 5});
 
@@ -21,7 +21,7 @@ public class GameBuilderTests {
 
     @Test
     void testFieldContainsWord() {
-        PlayerActionReader reader = mock(PlayerActionReader.class);
+        PlayerActionListener reader = mock(PlayerActionListener.class);
         when(reader.readUserAction()).thenReturn("name1").thenReturn("name2");
         when(reader.readHeightAndWidth()).thenReturn(new int[]{5, 5});
 
@@ -31,7 +31,7 @@ public class GameBuilderTests {
 
     @Test
     void testFieldNotContainsWord() {
-        PlayerActionReader reader = mock(PlayerActionReader.class);
+        PlayerActionListener reader = mock(PlayerActionListener.class);
         when(reader.readUserAction()).thenReturn("name1").thenReturn("name2");
         when(reader.readHeightAndWidth()).thenReturn(new int[]{6, 6});
 
@@ -42,7 +42,7 @@ public class GameBuilderTests {
 
     @Test
     void testFieldInvalidHeightWidth() {
-        PlayerActionReader reader = mock(PlayerActionReader.class);
+        PlayerActionListener reader = mock(PlayerActionListener.class);
         when(reader.readUserAction()).thenReturn("name1").thenReturn("name2");
         when(reader.readHeightAndWidth()).thenReturn(new int[]{2, 2});
 

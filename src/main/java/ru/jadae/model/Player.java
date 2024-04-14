@@ -52,7 +52,7 @@ public class Player {
         }
         if (secondStepIsDone || thirdStepIsDone) throw new StepInterruptedException();
 
-        if (cellToAddLetter.isActive() && wordFormer.getDictionary().letterIsPartOfAlphabet(letter)) {
+        if (wordFormer.getDictionary().letterIsPartOfAlphabet(letter)) {
             cellToAddLetter.setCellValue(letter);
             cellToAddLetter.setActive(false);
             secondStepIsDone = true;

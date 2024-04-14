@@ -5,7 +5,7 @@ import ru.jadae.enums.Languages;
 import ru.jadae.exceptions.FieldInitException;
 import ru.jadae.exceptions.InitException;
 import ru.jadae.exceptions.PlayerInitException;
-import ru.jadae.in.PlayerActionReader;
+import ru.jadae.in.PlayerActionListener;
 import ru.jadae.model.*;
 
 import java.io.IOException;
@@ -21,17 +21,17 @@ public class GameBuilder {
     private final List<Player> players = new ArrayList<>(2);
     private Field field;
     private Game game;
-    private final PlayerActionReader playerActionReader;
+    private final PlayerActionListener playerActionListener;
 
     public GameBuilder() {
         setDictionary();
-        this.playerActionReader = new PlayerActionReader();
+        this.playerActionListener = new PlayerActionListener();
         initGame();
     }
 
-    public GameBuilder(PlayerActionReader playerActionReader) {
+    public GameBuilder(PlayerActionListener playerActionListener) {
         setDictionary();
-        this.playerActionReader = playerActionReader;
+        this.playerActionListener = playerActionListener;
         initGame();
     }
 
@@ -60,8 +60,8 @@ public class GameBuilder {
     private void setField() {
         System.out.println("Enter field height and width dividing them with space [5-10]");
 
-        int[] params = playerActionReader.readHeightAndWidth();
-        if (params[0] < 5 || params[1] < 5) throw new InitException("Invalid field params");
+        int[] params = playerActionListener.readHeightAndWidth();
+        if (params[0] < 5 || params[1] < 5 || params[0] != params[1]) throw new InitException("Invalid field params");
         this.field = new Field(params[0], params[1]);
         this.field.writeTheWordIntoMiddleRow(dictionary.findValidWordForLength(params[1]));
 
@@ -69,9 +69,9 @@ public class GameBuilder {
 
     private void setPlayers() {
         System.out.println("Enter player name");
-        String firstPlayerName = playerActionReader.readUserAction();
+        String firstPlayerName = playerActionListener.readUserAction();
         System.out.println("Enter player name");
-        String secondPlayerName = playerActionReader.readUserAction();
+        String secondPlayerName = playerActionListener.readUserAction();
         if (firstPlayerName.equals(secondPlayerName)) throw new PlayerInitException("Entered names are equal");
 
         this.players.add(new Player(firstPlayerName, new WordFormer(this.dictionary)));
@@ -89,7 +89,7 @@ public class GameBuilder {
             }
         }
 
-        this.game = new Game(players, field, playerActionReader);
+        this.game = new Game(players, field, playerActionListener);
     }
 
 }
