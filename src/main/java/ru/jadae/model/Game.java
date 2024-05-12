@@ -32,7 +32,8 @@ public class Game {
                     "Submit finishing move (4)\n" +
                     "Cancel move (5)\n" +
                     "Skip move (6)\n" +
-                    "Violate the game flow (7)");
+                    "Add word to dictionary (7)\n" +
+                    "Violate the game flow (8)");
             String action = playerActionListener.readUserAction();
 
             switch (action) {
