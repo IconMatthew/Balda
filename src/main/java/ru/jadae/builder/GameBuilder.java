@@ -17,22 +17,39 @@ import java.util.Properties;
 @Getter
 public class GameBuilder {
 
+
+    private static GameBuilder instance;
+
     private Dictionary dictionary;
     private final List<Player> players = new ArrayList<>(2);
     private Field field;
     private Game game;
     private final PlayerActionListener playerActionListener;
+    private final List<Integer> validFieldSizes = new ArrayList<>();
 
-    public GameBuilder() {
-        setDictionary();
-        this.playerActionListener = new PlayerActionListener();
-        initGame();
+     {
+        validFieldSizes.add(5);
+        validFieldSizes.add(6);
+        validFieldSizes.add(7);
+        validFieldSizes.add(8);
+        validFieldSizes.add(9);
+        validFieldSizes.add(10);
     }
 
-    public GameBuilder(PlayerActionListener playerActionListener) {
+    private GameBuilder(PlayerActionListener playerActionListener) {
         setDictionary();
         this.playerActionListener = playerActionListener;
         initGame();
+    }
+
+    public static GameBuilder getInstance(){
+        if (instance == null) instance = new GameBuilder(new PlayerActionListener());
+        return instance;
+    }
+
+    public static GameBuilder getInstance(PlayerActionListener playerActionListener){
+        if (instance == null) instance = new GameBuilder(playerActionListener);
+        return instance;
     }
 
     private void setDictionary() {
