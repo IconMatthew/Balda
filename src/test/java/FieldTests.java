@@ -26,8 +26,10 @@ public class FieldTests {
         Cell cell = cells[0][0];
         List<Cell> neighbours = cell.getNeighbours();
 
+        //Valid cells
         Assertions.assertTrue(neighbours.contains(cells[0][1]));
         Assertions.assertTrue(neighbours.contains(cells[1][0]));
+        // Invalid cells
         Assertions.assertFalse(neighbours.contains(cells[2][1]));
         Assertions.assertFalse(neighbours.contains(cells[3][0]));
     }
