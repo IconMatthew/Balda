@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b2cf13ca-5cfb-4b46-a367-d792a32035e0" name="Changes" comment="Changed tests for Game">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PlayerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PlayerTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": -1
+}]]></component>
+  <component name="ProjectId" id="2gT7VawVzSjQfKTceSe07jupm7p" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/jadae/IdeaProjects/Balda",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b2cf13ca-5cfb-4b46-a367-d792a32035e0" name="Changes" comment="" />
+      <created>1715709738031</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715709738031</updated>
+      <workItem from="1715709739091" duration="4000" />
+      <workItem from="1715709775579" duration="1011000" />
+    </task>
+    <task id="LOCAL-00001" summary="Changed view logic">
+      <option name="closed" value="true" />
+      <created>1715709858424</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715709858424</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added lists for valid field sizes and languages">
+      <option name="closed" value="true" />
+      <created>1715709971014</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715709971014</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added validation for field dimension size">
+      <option name="closed" value="true" />
+      <created>1715710025650</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710025650</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added option for english dictionary">
+      <option name="closed" value="true" />
+      <created>1715710136493</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710136493</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Removed unnecessary console listener">
+      <option name="closed" value="true" />
+      <created>1715710180836</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710180836</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Changed players initialization">
+      <option name="closed" value="true" />
+      <created>1715710219470</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710219470</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Changed init method">
+      <option name="closed" value="true" />
+      <created>1715710233339</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710233339</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added fields to game">
+      <option name="closed" value="true" />
+      <created>1715710302636</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710302636</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Split main cycle into methods">
+      <option name="closed" value="true" />
+      <created>1715710332926</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710332926</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Result message is contained inside field gameResultMessage">
+      <option name="closed" value="true" />
+      <created>1715710392593</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710392593</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Polish">
+      <option name="closed" value="true" />
+      <created>1715710411232</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710411232</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added words to dictionaries">
+      <option name="closed" value="true" />
+      <created>1715710426952</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710426952</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Field now contains the word written in the middle lane">
+      <option name="closed" value="true" />
+      <created>1715710474312</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710474312</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added fieldPanel logic">
+      <option name="closed" value="true" />
+      <created>1715710510001</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710510001</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added styles class containing fonts and colors for view">
+      <option name="closed" value="true" />
+      <created>1715710539223</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710539223</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added CellSubSequencePanel logic">
+      <option name="closed" value="true" />
+      <created>1715710574192</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710574192</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added ControlsPanel logic">
+      <option name="closed" value="true" />
+      <created>1715710581550</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710581550</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added ActionButton logic">
+      <option name="closed" value="true" />
+      <created>1715710594297</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710594297</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added FormedWordsContainer logic">
+      <option name="closed" value="true" />
+      <created>1715710608623</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710608623</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added MenuTextField logic">
+      <option name="closed" value="true" />
+      <created>1715710618685</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710618685</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Skip move now returns cell if it was already selected">
+      <option name="closed" value="true" />
+      <created>1715710661417</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710661417</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added rethrow for InvalidFormedWord exception">
+      <option name="closed" value="true" />
+      <created>1715710740337</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710740337</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Changed tests for GameBuilder">
+      <option name="closed" value="true" />
+      <created>1715710758130</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710758130</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Changed tests for Game">
+      <option name="closed" value="true" />
+      <created>1715710766922</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710766922</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Changed view logic" />
+    <MESSAGE value="Added lists for valid field sizes and languages" />
+    <MESSAGE value="Added validation for field dimension size" />
+    <MESSAGE value="Added option for english dictionary" />
+    <MESSAGE value="Removed unnecessary console listener" />
+    <MESSAGE value="Changed players initialization" />
+    <MESSAGE value="Changed init method" />
+    <MESSAGE value="Added fields to game" />
+    <MESSAGE value="Split main cycle into methods" />
+    <MESSAGE value="Result message is contained inside field gameResultMessage" />
+    <MESSAGE value="Polish" />
+    <MESSAGE value="Added words to dictionaries" />
+    <MESSAGE value="Field now contains the word written in the middle lane" />
+    <MESSAGE value="Added fieldPanel logic" />
+    <MESSAGE value="Added styles class containing fonts and colors for view" />
+    <MESSAGE value="Added CellSubSequencePanel logic" />
+    <MESSAGE value="Added ControlsPanel logic" />
+    <MESSAGE value="Added ActionButton logic" />
+    <MESSAGE value="Added FormedWordsContainer logic" />
+    <MESSAGE value="Added MenuTextField logic" />
+    <MESSAGE value="Skip move now returns cell if it was already selected" />
+    <MESSAGE value="Added rethrow for InvalidFormedWord exception" />
+    <MESSAGE value="Changed tests for GameBuilder" />
+    <MESSAGE value="Changed tests for Game" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed tests for Game" />
+  </component>
+</project>
