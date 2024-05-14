@@ -53,19 +53,15 @@ public class GameBuilder {
         return instance;
     }
 
-    private void setDictionary() {
+    public void setDictionary(Languages language) {
         Properties properties = new Properties();
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("application.properties")) {
             properties.load(inputStream);
-            String filePath = properties.getProperty("dictionary1.filepath");
-            String alphabetStr = properties.getProperty("dictionary1.alphabet");
 
-            if ("RUS".equals(alphabetStr)) {
-                this.dictionary = new Dictionary(filePath, Languages.RUS);
-            } else if ("ENG".equals(alphabetStr)) {
-                this.dictionary = new Dictionary(filePath, Languages.ENG);
+            if (language.equals(Languages.RUS)) {
+                this.dictionary = new Dictionary(properties.getProperty("dictionary1.filepath"), Languages.RUS);
             } else {
-                throw new IllegalArgumentException("Unknown alphabet: " + alphabetStr);
+                this.dictionary = new Dictionary(properties.getProperty("dictionary2.filepath"), Languages.ENG);
             }
 
         } catch (IOException e) {
