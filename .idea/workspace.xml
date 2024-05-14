@@ -4,43 +4,102 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2cf13ca-5cfb-4b46-a367-d792a32035e0" name="Changes" comment="Changed tests for Game">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/Main.java" afterDir="false" />
+    <list default="true" id="b2cf13ca-5cfb-4b46-a367-d792a32035e0" name="Changes" comment="Added path to the second dictionary">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/exceptions/DuplicateWord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/model/Dictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/model/Dictionary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/model/WordFormer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/model/WordFormer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/view/ControlsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/view/ControlsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/view/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/view/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PlayerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PlayerTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GameTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GameTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": -1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: -1
+}</component>
   <component name="ProjectId" id="2gT7VawVzSjQfKTceSe07jupm7p" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/jadae/IdeaProjects/Balda",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jadae/IdeaProjects/Balda&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager" selected="JUnit.All in Balda">
+    <configuration name="All in Balda" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Balda" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AlphabetTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Balda" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AlphabetTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FieldTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Balda" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FieldTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTests.gameEndsCorrectly1stWinner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Balda" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GameTests" />
+      <option name="METHOD_NAME" value="gameEndsCorrectly1stWinner" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in Balda" />
+        <item itemvalue="JUnit.GameTests.gameEndsCorrectly1stWinner" />
+        <item itemvalue="JUnit.FieldTests" />
+        <item itemvalue="JUnit.AlphabetTests" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -50,7 +109,9 @@
       <option name="presentableId" value="Default" />
       <updated>1715709738031</updated>
       <workItem from="1715709739091" duration="4000" />
-      <workItem from="1715709775579" duration="1011000" />
+      <workItem from="1715709775579" duration="1232000" />
+      <workItem from="1715711382631" duration="3313000" />
+      <workItem from="1715724114354" duration="1021000" />
     </task>
     <task id="LOCAL-00001" summary="Changed view logic">
       <option name="closed" value="true" />
@@ -244,15 +305,37 @@
       <option name="project" value="LOCAL" />
       <updated>1715710766922</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added InvalidFormedWord exception treatment">
+      <option name="closed" value="true" />
+      <created>1715710817664</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710817664</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Changed the way application starts">
+      <option name="closed" value="true" />
+      <created>1715710862285</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710862285</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Added path to the second dictionary">
+      <option name="closed" value="true" />
+      <created>1715710884279</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710884279</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed view logic" />
-    <MESSAGE value="Added lists for valid field sizes and languages" />
     <MESSAGE value="Added validation for field dimension size" />
     <MESSAGE value="Added option for english dictionary" />
     <MESSAGE value="Removed unnecessary console listener" />
@@ -275,6 +358,13 @@
     <MESSAGE value="Added rethrow for InvalidFormedWord exception" />
     <MESSAGE value="Changed tests for GameBuilder" />
     <MESSAGE value="Changed tests for Game" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed tests for Game" />
+    <MESSAGE value="Added InvalidFormedWord exception treatment" />
+    <MESSAGE value="Changed the way application starts" />
+    <MESSAGE value="Added path to the second dictionary" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added path to the second dictionary" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Balda$All_in_Balda.ic" NAME="All in Balda Coverage Results" MODIFIED="1715724670323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Balda$FieldTests.ic" NAME="FieldTests Coverage Results" MODIFIED="1715715133179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
