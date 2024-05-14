@@ -1,7 +1,6 @@
 package ru.jadae.model;
 
 import lombok.Getter;
-import ru.jadae.in.PlayerActionListener;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,14 +15,13 @@ public class Game {
     private boolean gameOver = false;
     private String gameResultMessage;
 
-    public Game(List<Player> players, Field field, PlayerActionListener playerActionListener) {
+    public Game(List<Player> players, Field field) {
         this.players = players;
         this.field = field;
-        this.playerActionListener = playerActionListener;
+        this.activePlayer = changePlayersStatus();
     }
 
-    public void gameCycle() {
-        Player activePlayer = changePlayersStatus();
+    public void step1SelectCell(Cell cell) {
 
         try {
             System.out.println("Pick cell");
@@ -99,10 +97,9 @@ public class Game {
         }
     }
 
-                }
-                case "8" -> this.breakTheGameFlow = true;
-            }
-        }
+    public void additionalStep4FinishGame() {
+        this.breakTheGameFlow = true;
+        checkGameEnd();
     }
 
     private boolean checkGameEnd() {
