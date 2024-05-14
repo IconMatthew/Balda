@@ -79,7 +79,9 @@ public class GameBuilder {
         this.players.add(new Player(name2, new WordFormer(this.dictionary)));
     }
 
-        this.game = new Game(players, field, playerActionListener);
+    public Game initGame() {
+        if (field == null || players.isEmpty()) throw new InitException("Not all parameters are set");
+        return new Game(players, field);
     }
 
 }
