@@ -1,6 +1,8 @@
 package ru.jadae.model;
 
 import lombok.Getter;
+import ru.jadae.exceptions.DuplicateWord;
+import ru.jadae.exceptions.InvalidFormedWord;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +16,7 @@ public class Game {
     private Player activePlayer;
     private boolean gameOver = false;
     private String gameResultMessage;
+    private int skipCounter = 0;
 
     public Game(List<Player> players, Field field) {
         this.players = players;
@@ -60,6 +63,10 @@ public class Game {
             checkGameEnd();
             activePlayer = changePlayersStatus();
             return true;
+        }
+        catch (DuplicateWord e) {
+            System.out.println(e.getMessage());
+            throw new DuplicateWord();
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
@@ -79,12 +86,17 @@ public class Game {
 
         try {
             Cell cell = activePlayer.skipMove();
+            this.skipCounter++;
             if (cell != null) {
                 this.field.getCellByPosIndexes(cell.getHeightPos(), cell.getWidthPos()).setCellValue(null);
             }
             activePlayer = changePlayersStatus();
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }
+
+        if (skipCounter > 1){
+            additionalStep4FinishGame();
         }
     }
 
@@ -115,9 +127,14 @@ public class Game {
                     gameResultMessage = "Победил " + winner.getPlayerName() + "\n" +
                             "Очки: " + playerToScore.get(winner);
                 } else System.out.println("Победитель не выявлен");
+                for (Player player:players) {
+                    player.cleanAllFormedWords();
+                    player.getWordFormer().getDictionary().cleanFormedWords();
+                }
             }
 
             this.gameOver = true;
+            this.skipCounter = 0;
             return true;
         }
         return false;
