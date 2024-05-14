@@ -74,15 +74,13 @@ public class GameBuilder {
         }
     }
 
-
-    private void setField() {
-        System.out.println("Enter field height and width dividing them with space [5-10]");
-
-        int[] params = playerActionListener.readHeightAndWidth();
-        if (params[0] < 5 || params[1] < 5 || params[0] != params[1]) throw new InitException("Invalid field params");
-        this.field = new Field(params[0], params[1]);
-        this.field.writeTheWordIntoMiddleRow(dictionary.findValidWordForLength(params[1]));
-
+    public void setField(int dimension) {
+        if (dimension > 9 || dimension < 3 || dimension % 2 == 0) {
+            throw new InitException("Invalid dimension size");
+        }
+        this.field = new Field(dimension, dimension);
+        this.field.writeTheWordIntoMiddleRow(dictionary.findValidWordForLength(dimension));
+        this.dictionary.addFormedWord(field.getWord());
     }
 
     private void setPlayers() {
