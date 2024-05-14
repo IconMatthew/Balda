@@ -109,16 +109,18 @@ public class Game {
         if (!this.field.containsEmptyCells() || this.breakTheGameFlow) {
             Map<Player, Integer> playerToScore = detectWinner();
             if (playerToScore.size() > 1) {
-                System.out.println("Ничья!\n"
+                gameResultMessage = "Ничья!\n"
                         + "Очки для игрока - " + players.get(0).getPlayerName() + ": " + playerToScore.get(players.get(0)) + "\n"
-                        + "Очки для игрока - " + players.get(1).getPlayerName() + ": " + playerToScore.get(players.get(1)));
+                        + "Очки для игрока - " + players.get(1).getPlayerName() + ": " + playerToScore.get(players.get(1));
             } else {
                 if (!playerToScore.isEmpty()) {
                     Player winner = playerToScore.containsKey(players.get(0)) ? players.get(0) : players.get(1);
-                    System.out.println("Победил " + winner.getPlayerName() + "\n" +
-                            "Очки: " + playerToScore.get(winner));
+                    gameResultMessage = "Победил " + winner.getPlayerName() + "\n" +
+                            "Очки: " + playerToScore.get(winner);
                 } else System.out.println("Победитель не выявлен");
             }
+
+            this.gameOver = true;
             return true;
         }
         return false;
