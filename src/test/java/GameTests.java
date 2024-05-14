@@ -15,6 +15,7 @@ public class GameTests {
 
     private final Dictionary dictionary = mock(Dictionary.class);
     private final Field field = mock(Field.class);
+    private final WordFormer wordFormer = mock(WordFormer.class);
 
     @Test
     void enterCellCoordsMethodCallForGame() {
@@ -207,6 +208,9 @@ public class GameTests {
         when(players.get(1).getFormedWords()).thenReturn(secondPlayerWords);
         when(players.get(0).getPlayerName()).thenReturn("1st");
         when(players.get(1).getPlayerName()).thenReturn("2d");
+        when(players.get(0).getWordFormer()).thenReturn(wordFormer);
+        when(players.get(1).getWordFormer()).thenReturn(wordFormer);
+        when(wordFormer.getDictionary()).thenReturn(dictionary);
 
         game.step4FinishMove();
         Assertions.assertTrue(game.isGameOver());
@@ -235,6 +239,9 @@ public class GameTests {
         when(players.get(1).getFormedWords()).thenReturn(secondPlayerWords);
         when(players.get(0).getPlayerName()).thenReturn("1st");
         when(players.get(1).getPlayerName()).thenReturn("2d");
+        when(players.get(0).getWordFormer()).thenReturn(wordFormer);
+        when(players.get(1).getWordFormer()).thenReturn(wordFormer);
+        when(wordFormer.getDictionary()).thenReturn(dictionary);
 
         game.step4FinishMove();
         Assertions.assertTrue(game.isGameOver());
