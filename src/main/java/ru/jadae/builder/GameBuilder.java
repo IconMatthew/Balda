@@ -23,23 +23,24 @@ public class GameBuilder {
     private Dictionary dictionary;
     private final List<Player> players = new ArrayList<>(2);
     private Field field;
-    private Game game;
-    private final PlayerActionListener playerActionListener;
-    private final List<Integer> validFieldSizes = new ArrayList<>();
 
-     {
-        validFieldSizes.add(5);
-        validFieldSizes.add(6);
-        validFieldSizes.add(7);
-        validFieldSizes.add(8);
-        validFieldSizes.add(9);
-        validFieldSizes.add(10);
+    private final List<Integer> validFieldSizes = new ArrayList<>(6);
+    private final List<Languages> validLanguages = new ArrayList<>(2);
+
+    private void initializeValidFieldSizes() {
+        for (int i = 3; i < 11; i += 2) {
+            validFieldSizes.add(i);
+        }
     }
 
-    private GameBuilder(PlayerActionListener playerActionListener) {
-        setDictionary();
-        this.playerActionListener = playerActionListener;
-        initGame();
+    private void initializeValidLanguages() {
+        validLanguages.add(Languages.RUS);
+        validLanguages.add(Languages.ENG);
+    }
+
+    private GameBuilder() {
+        initializeValidLanguages();
+        initializeValidFieldSizes();
     }
 
     public static GameBuilder getInstance(){
