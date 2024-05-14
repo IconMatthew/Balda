@@ -2,59 +2,62 @@ package ru.jadae.view;
 
 
 import ru.jadae.model.Player;
-import ru.jadae.view.custom_panels.BorderedPanel;
-import ru.jadae.view.utils.AppStyles;
+import ru.jadae.view.custom_panels.FormedWordsContainer;
+import ru.jadae.view.utils.Styles;
 
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.util.Locale;
 
-public class PlayersPanel extends BorderedPanel {
-    private final GamePanel _owner;
-    private Player _observable;
-
-    private final JLabel _playerInfoPanel = new JLabel();
-    private final JPanel _wordsPanel = new JPanel();
+public class PlayersPanel extends FormedWordsContainer {
+    private final GamePanel owner;
+    private Player observable;
+    private final JLabel playerInfoPanel = new JLabel();
+    private final JPanel wordsPanel = new JPanel();
 
     public PlayersPanel(GamePanel owner) {
         super(3);
-        _owner = owner;
+        this.owner = owner;
 
         setLayout(new BorderLayout(20, 20));
-        setPreferredSize(new Dimension(200, _owner.getHeight()));
+        setPreferredSize(new Dimension(200, this.owner.getHeight()));
 
-        _playerInfoPanel.setFont(AppStyles.LABEL_FONT);
-        _playerInfoPanel.setText("");
-        _playerInfoPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
-        add(_playerInfoPanel, BorderLayout.NORTH);
+        playerInfoPanel.setFont(Styles.LABEL_FONT);
+        playerInfoPanel.setText("");
+        playerInfoPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        add(playerInfoPanel, BorderLayout.NORTH);
 
-        _wordsPanel.setBorder(new MatteBorder(1, 0, 0, 0, AppStyles.BORDER_COLOR));
-        _wordsPanel.setLayout(new BoxLayout(_wordsPanel, BoxLayout.Y_AXIS));
+        wordsPanel.setBorder(new MatteBorder(1, 0, 0, 0, Styles.BORDER_COLOR));
+        wordsPanel.setLayout(new BoxLayout(wordsPanel, BoxLayout.Y_AXIS));
 
-        add(_wordsPanel, BorderLayout.CENTER);
+        add(wordsPanel, BorderLayout.CENTER);
     }
 
     public void setObservablePlayer(Player player) {
-        _observable = player;
+        observable = player;
         update();
     }
 
     public void update() {
-//        _playerInfoPanel.setText(
-//                _observable.getPlayerName() + ": " + _owner.currentGame().scoreCounter().getScorePlayerByName(_observable.name()));
-//
-//        _playerInfoPanel.setForeground(
-//                _owner.currentGame().activePlayer() == _observable? AppStyles.ACTIVE_PLAYER_COLOR : Color.black);
-//
-//        _wordsPanel.removeAll();
-//        _wordsPanel.revalidate();
-//        _wordsPanel.repaint();
-//
-//        for (String word : _observable.getFormedWords()) {
-//            JLabel wordLabel = new JLabel(word.toLowerCase(Locale.ROOT));
-//            wordLabel.setFont(AppStyles.TITLE_FONT);
-//            _wordsPanel.add(wordLabel);
-//        }
+
+        String text = observable.getPlayerName() + ": " + observable.getFormedWords()
+                .stream()
+                .mapToInt(String::length)
+                .sum();
+        playerInfoPanel.setText(text);
+
+        playerInfoPanel.setForeground(
+                owner.getGame().getActivePlayer() == observable ? Styles.ACTIVE_PLAYER_COLOR : Color.black);
+
+        wordsPanel.removeAll();
+        wordsPanel.revalidate();
+        wordsPanel.repaint();
+
+        for (String word : observable.getFormedWords()) {
+            JLabel wordLabel = new JLabel(word.toLowerCase(Locale.ROOT));
+            wordLabel.setFont(Styles.TITLE_FONT);
+            wordsPanel.add(wordLabel);
+        }
     }
 }

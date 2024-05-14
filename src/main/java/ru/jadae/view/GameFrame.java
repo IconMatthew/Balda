@@ -1,16 +1,13 @@
 package ru.jadae.view;
 
-
-
 import ru.jadae.model.Game;
 
 import javax.swing.*;
 import java.awt.*;
 
-
-public class GameFrame extends JFrame{
-    private GamePanel _gamePanel;
-    private final SettingsMenuPanel _menu;  // Окно настроек игры
+public class GameFrame extends JFrame {
+    private GamePanel gamePanel;
+    private final SettingsMenuPanel menu;
 
     void setSettingsSizeWindow() {
         setSize(500, 500);
@@ -22,7 +19,6 @@ public class GameFrame extends JFrame{
         setLocationRelativeTo(null);
     }
 
-    // Создается при запуске приложения
     public GameFrame() {
         setTitle("Балда");
         setSettingsSizeWindow();
@@ -30,29 +26,27 @@ public class GameFrame extends JFrame{
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         setLayout(new BorderLayout());
-        _menu = new SettingsMenuPanel(this);
-        add(_menu);
+        menu = new SettingsMenuPanel(this);
+        add(menu);
 
         setVisible(true);
     }
 
-    // Запуск процесса игры
-    public void runGame(Game model) {
-        _gamePanel = new GamePanel(this);
+    public void runGame(Game game) {
+
+        gamePanel = new GamePanel(this);
         setGameSizeWindow();
 
-        model.gameCycle();
-        _gamePanel.setGameModel(model);
-        add(_gamePanel);
+        gamePanel.setGameModel(game);
+        add(gamePanel);
 
-        _gamePanel.setVisible(true);
+        gamePanel.setVisible(true);
     }
 
-    // После окончания игры, снова открывается меню
     public void toStartMenu() {
-        _gamePanel.setVisible(false);
+        gamePanel.setVisible(false);
         setSettingsSizeWindow();
 
-        _menu.setVisible(true);
+        menu.setVisible(true);
     }
 }
