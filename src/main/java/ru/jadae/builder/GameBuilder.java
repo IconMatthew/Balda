@@ -2,10 +2,8 @@ package ru.jadae.builder;
 
 import lombok.Getter;
 import ru.jadae.enums.Languages;
-import ru.jadae.exceptions.FieldInitException;
 import ru.jadae.exceptions.InitException;
 import ru.jadae.exceptions.PlayerInitException;
-import ru.jadae.in.PlayerActionListener;
 import ru.jadae.model.*;
 
 import java.io.IOException;
@@ -16,7 +14,6 @@ import java.util.Properties;
 
 @Getter
 public class GameBuilder {
-
 
     private static GameBuilder instance;
 
@@ -74,27 +71,13 @@ public class GameBuilder {
         this.dictionary.addFormedWord(field.getWord());
     }
 
-    private void setPlayers() {
-        System.out.println("Enter player name");
-        String firstPlayerName = playerActionListener.readUserAction();
-        System.out.println("Enter player name");
-        String secondPlayerName = playerActionListener.readUserAction();
-        if (firstPlayerName.equals(secondPlayerName)) throw new PlayerInitException("Entered names are equal");
+    public void setPlayers(String name1, String name2) {
 
-        this.players.add(new Player(firstPlayerName, new WordFormer(this.dictionary)));
-        this.players.add(new Player(secondPlayerName, new WordFormer(this.dictionary)));
+        if (name1.equals(name2)) throw new PlayerInitException("Entered names are equal");
+
+        this.players.add(new Player(name1, new WordFormer(this.dictionary)));
+        this.players.add(new Player(name2, new WordFormer(this.dictionary)));
     }
-
-    private void initGame() {
-
-        while (this.field == null || players.size() < 2) {
-            try {
-                if (this.field == null) setField();
-                setPlayers();
-            } catch (PlayerInitException | FieldInitException e) {
-                System.out.println(e.getMessage());
-            }
-        }
 
         this.game = new Game(players, field, playerActionListener);
     }
