@@ -112,9 +112,11 @@ public class Player {
         }
     }
 
-    public void skipMove() {
+    public Cell skipMove() {
+        Cell cellToReturn = this.cellToAddLetter;
         finalizeMove();
         formedWords.add("");
+        return cellToReturn;
     }
 
     public void addWordToDictionary(String word) {
