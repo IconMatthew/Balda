@@ -11,8 +11,10 @@ import java.util.Map;
 public class Game {
     private final List<Player> players;
     private final Field field;
-    private final PlayerActionListener playerActionListener;
     private boolean breakTheGameFlow = false;
+    private Player activePlayer;
+    private boolean gameOver = false;
+    private String gameResultMessage;
 
     public Game(List<Player> players, Field field, PlayerActionListener playerActionListener) {
         this.players = players;
