@@ -75,16 +75,15 @@ public class Player {
         if (!firstStepIsDone && !secondStepIsDone) {
             throw new StepInterruptedException("Make sure to pick cell, enter letter and form word first!");
         }
-        if (thirdStepIsDone) throw new StepInterruptedException();
 
         try {
             String word = wordFormer.finishWordFormation(cellToAddLetter);
             thirdStepIsDone = true;
             formedWords.add(word);
             finalizeMove();
-
         } catch (InvalidFormedWord e) {
             System.out.println(e.getMessage());
+            throw new InvalidFormedWord();
         } finally {
             thirdStepIsDone = false;
         }
