@@ -43,13 +43,8 @@ public class GameBuilder {
         initializeValidFieldSizes();
     }
 
-    public static GameBuilder getInstance(){
-        if (instance == null) instance = new GameBuilder(new PlayerActionListener());
-        return instance;
-    }
-
-    public static GameBuilder getInstance(PlayerActionListener playerActionListener){
-        if (instance == null) instance = new GameBuilder(playerActionListener);
+    public static GameBuilder getInstance() {
+        if (instance == null) instance = new GameBuilder();
         return instance;
     }
 
