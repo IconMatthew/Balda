@@ -72,20 +72,21 @@ public class GamePanel extends JPanel {
                     .collect(Collectors.joining());
 
             this.game.additionalStep3AddWordToDictionary(word);
-            this.game.step4FinishMove();
+
         }
     }
 
     public void update() {
 
         fieldView.update();
-        playersPanels.forEach(PlayersPanel::update);
         cellSubSequencePanel.update();
 
         if (this.game.isGameOver()) {
             JOptionPane.showMessageDialog(owner, this.game.getGameResultMessage());
             owner.toStartMenu();
         }
+
+        playersPanels.forEach(PlayersPanel::update);
     }
 
     private class KeyController implements KeyListener {
@@ -96,9 +97,15 @@ public class GamePanel extends JPanel {
 
         @Override
         public void keyPressed(KeyEvent e) {
+
+            if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                game.additionalStep1CancelMove();
+                update();
+                return;
+            }
+
             boolean isTimeSetSymbol = game.getActivePlayer().isFirstStepIsDone();
             isTimeSetSymbol &= !game.getActivePlayer().isSecondStepIsDone();
-
             try {
                 if (isTimeSetSymbol) {
                     game.step2InsertLetter(e.getKeyChar());
