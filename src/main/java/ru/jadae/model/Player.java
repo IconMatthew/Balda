@@ -2,6 +2,7 @@ package ru.jadae.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import ru.jadae.exceptions.DuplicateWord;
 import ru.jadae.exceptions.InvalidFormedWord;
 import ru.jadae.exceptions.StepInterruptedException;
 
@@ -84,7 +85,10 @@ public class Player {
         } catch (InvalidFormedWord e) {
             System.out.println(e.getMessage());
             throw new InvalidFormedWord();
-        } finally {
+        } catch (DuplicateWord e) {
+            System.out.println(e.getMessage());
+            throw new DuplicateWord();
+        }finally {
             thirdStepIsDone = false;
         }
     }
@@ -125,5 +129,9 @@ public class Player {
         } else if (wordFormer.getDictionary().isCorrectWord(lowercaseWord)) {
             wordFormer.getDictionary().addWordToDictionary(lowercaseWord);
         } else throw new IllegalArgumentException("Invalid symbols are found in word");
+    }
+
+    public void cleanAllFormedWords(){
+        this.formedWords = new ArrayList<>();
     }
 }
