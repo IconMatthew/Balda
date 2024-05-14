@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ru.jadae.enums.Languages;
+import ru.jadae.exceptions.InvalidFormedWord;
 import ru.jadae.exceptions.StepInterruptedException;
 import ru.jadae.model.Cell;
 import ru.jadae.model.Dictionary;
@@ -168,9 +169,8 @@ public class PlayerTests {
         player.enterLetterToCell('м');
         player.addCellToWord(cell);
         player.addCellToWord(neighbourCell);
-        player.submitMoveFinished();
 
-        Assertions.assertEquals(0, player.getFormedWords().size());
+        Assertions.assertThrows(InvalidFormedWord.class, player::submitMoveFinished);
     }
 
     @Test
@@ -333,7 +333,7 @@ public class PlayerTests {
     void addValidWordToDictionary() {
         Player player = init();
         String wordToAdd = "МАма";
-        player.addWordToDictionary(wordToAdd);
-        Assertions.assertTrue(player.getWordFormer().getDictionary().containsWord(wordToAdd.toLowerCase()));
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> player.addWordToDictionary(wordToAdd));
     }
 }
