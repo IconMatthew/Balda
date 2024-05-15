@@ -1,12 +1,14 @@
 package ru.jadae.view.custom_panels;
 
+import lombok.Getter;
 import ru.jadae.view.utils.Styles;
 
 import javax.swing.*;
 import java.awt.*;
 
+@Getter
 public class FormedWordsContainer extends JPanel {
-    int cornerRadius;
+    private final int cornerRadius;
 
     public FormedWordsContainer(int radius) {
         super();
