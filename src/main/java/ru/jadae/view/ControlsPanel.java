@@ -17,26 +17,26 @@ public class ControlsPanel extends JPanel {
         setLayout(new FlowLayout(FlowLayout.CENTER, 45, 5));
         JButton _skipButton = new ActionButton("Пропуск хода");
         _skipButton.setPreferredSize(BUTTON_ACTION_SIZE);
-        _skipButton.addActionListener(e -> _skipTurnCurrentPlayer());
+        _skipButton.addActionListener(e -> skipTurnCurrentPlayer());
         add(_skipButton);
 
         JButton _cancelButton = new ActionButton("Отмена");
         _cancelButton.setPreferredSize(BUTTON_ACTION_SIZE);
-        _cancelButton.addActionListener(e -> _resetActionsCurrentPlayer());
+        _cancelButton.addActionListener(e -> resetActionsCurrentPlayer());
         add(_cancelButton);
 
         JButton _confirmButton = new ActionButton("Подтвердить ход");
         _confirmButton.setPreferredSize(BUTTON_ACTION_SIZE);
-        _confirmButton.addActionListener(e -> _confirmCurrentSequence());
+        _confirmButton.addActionListener(e -> confirmCurrentSubSequence());
         add(_confirmButton);
     }
 
-    private void _skipTurnCurrentPlayer() {
+    private void skipTurnCurrentPlayer() {
         owner.getGame().additionalStep2SkipMove();
         owner.update();
     }
 
-    private void _confirmCurrentSequence() {
+    private void confirmCurrentSubSequence() {
         try{
             if (!owner.getGame().step4FinishMove()) {
                 owner.suggestAddingWordToDictionary();
@@ -49,7 +49,7 @@ public class ControlsPanel extends JPanel {
 
     }
 
-    private void _resetActionsCurrentPlayer() {
+    private void resetActionsCurrentPlayer() {
         owner.getGame().additionalStep1CancelMove();
         owner.update();
     }
