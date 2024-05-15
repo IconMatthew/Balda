@@ -25,7 +25,6 @@ public class Game {
     }
 
     public void step1SelectCell(Cell cell) {
-
         try {
             System.out.println("Pick cell");
             activePlayer.setCellActiveForInsertingLetter(field.getCellByPosIndexes(cell.getHeightPos(), cell.getWidthPos()));
@@ -62,6 +61,7 @@ public class Game {
             activePlayer.submitMoveFinished();
             checkGameEnd();
             activePlayer = changePlayersStatus();
+            skipCounter = 0;
             return true;
         }
         catch (DuplicateWord e) {

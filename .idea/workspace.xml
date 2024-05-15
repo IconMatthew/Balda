@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2cf13ca-5cfb-4b46-a367-d792a32035e0" name="Changes" comment="Added path to the second dictionary">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/exceptions/DuplicateWord.java" afterDir="false" />
+    <list default="true" id="b2cf13ca-5cfb-4b46-a367-d792a32035e0" name="Changes" comment="Changed path to dictionaries">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/model/Dictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/model/Dictionary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/model/WordFormer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/model/WordFormer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/view/ControlsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/view/ControlsPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/view/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/view/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/GameTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GameTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/view/custom_panels/FormedWordsContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/view/custom_panels/FormedWordsContainer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +48,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.All in Balda">
+  <component name="RunManager">
     <configuration name="All in Balda" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Balda" />
       <option name="PACKAGE_NAME" value="" />
@@ -111,7 +105,8 @@
       <workItem from="1715709739091" duration="4000" />
       <workItem from="1715709775579" duration="1232000" />
       <workItem from="1715711382631" duration="3313000" />
-      <workItem from="1715724114354" duration="1021000" />
+      <workItem from="1715724114354" duration="3135000" />
+      <workItem from="1715766733438" duration="5401000" />
     </task>
     <task id="LOCAL-00001" summary="Changed view logic">
       <option name="closed" value="true" />
@@ -329,21 +324,77 @@
       <option name="project" value="LOCAL" />
       <updated>1715710884279</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Added exception for duplicate word">
+      <option name="closed" value="true" />
+      <created>1715725201008</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1715725201008</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added exception handling">
+      <option name="closed" value="true" />
+      <created>1715725282557</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1715725282557</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Split condition for handling duplicate word exception">
+      <option name="closed" value="true" />
+      <created>1715725338352</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1715725338352</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Added skip counter (violate gameflow after 2 skips in a row)">
+      <option name="closed" value="true" />
+      <created>1715725432017</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1715725432017</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Added cleaning formed words after game is over">
+      <option name="closed" value="true" />
+      <created>1715725467176</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1715725467176</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Bound move cancel for esc button">
+      <option name="closed" value="true" />
+      <created>1715725502285</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1715725502285</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Added mock for wordFormer">
+      <option name="closed" value="true" />
+      <created>1715725528297</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1715725528297</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Changed path to dictionaries">
+      <option name="closed" value="true" />
+      <created>1715725546121</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1715725546121</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added validation for field dimension size" />
-    <MESSAGE value="Added option for english dictionary" />
-    <MESSAGE value="Removed unnecessary console listener" />
-    <MESSAGE value="Changed players initialization" />
-    <MESSAGE value="Changed init method" />
-    <MESSAGE value="Added fields to game" />
-    <MESSAGE value="Split main cycle into methods" />
-    <MESSAGE value="Result message is contained inside field gameResultMessage" />
     <MESSAGE value="Polish" />
     <MESSAGE value="Added words to dictionaries" />
     <MESSAGE value="Field now contains the word written in the middle lane" />
@@ -361,10 +412,18 @@
     <MESSAGE value="Added InvalidFormedWord exception treatment" />
     <MESSAGE value="Changed the way application starts" />
     <MESSAGE value="Added path to the second dictionary" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added path to the second dictionary" />
+    <MESSAGE value="Added exception for duplicate word" />
+    <MESSAGE value="Added exception handling" />
+    <MESSAGE value="Split condition for handling duplicate word exception" />
+    <MESSAGE value="Added skip counter (violate gameflow after 2 skips in a row)" />
+    <MESSAGE value="Added cleaning formed words after game is over" />
+    <MESSAGE value="Bound move cancel for esc button" />
+    <MESSAGE value="Added mock for wordFormer" />
+    <MESSAGE value="Changed path to dictionaries" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed path to dictionaries" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Balda$All_in_Balda.ic" NAME="All in Balda Coverage Results" MODIFIED="1715724670323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Balda$All_in_Balda.ic" NAME="All in Balda Coverage Results" MODIFIED="1715725155582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Balda$FieldTests.ic" NAME="FieldTests Coverage Results" MODIFIED="1715715133179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
