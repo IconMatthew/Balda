@@ -1,14 +1,16 @@
 package ru.jadae.view.custom_panels;
 
-import ru.jadae.view.utils.AppStyles;
+import lombok.Getter;
+import ru.jadae.view.utils.Styles;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class BorderedPanel extends JPanel{
-    int cornerRadius;
+@Getter
+public class FormedWordsContainer extends JPanel {
+    private final int cornerRadius;
 
-    public BorderedPanel(int radius) {
+    public FormedWordsContainer(int radius) {
         super();
         cornerRadius = radius;
         setBorder(BorderFactory.createEmptyBorder(7, 7, 7, 7));
@@ -24,8 +26,8 @@ public class BorderedPanel extends JPanel{
         Graphics2D graphics = (Graphics2D) g;
         graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         graphics.setColor(getBackground());
-        graphics.fillRoundRect(0, 0, width-1, height-1, arcs.width, arcs.height);
-        graphics.setColor(AppStyles.BORDER_COLOR);
-        graphics.drawRoundRect(0, 0, width-1, height-1, arcs.width, arcs.height);
+        graphics.fillRoundRect(0, 0, width - 1, height - 1, arcs.width, arcs.height);
+        graphics.setColor(Styles.BORDER_COLOR);
+        graphics.drawRoundRect(0, 0, width - 1, height - 1, arcs.width, arcs.height);
     }
 }

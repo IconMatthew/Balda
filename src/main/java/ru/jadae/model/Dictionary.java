@@ -73,4 +73,8 @@ public class Dictionary {
         }
         return true;
     }
+
+    public void cleanFormedWords(){
+        this.formedWords = new ArrayList<>();
+    }
 }

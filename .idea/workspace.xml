@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="640b1adf-fe7d-4d9b-b8f4-a8ea102498cb" name="Changes" comment="Changed tests for GameBuilder" />
+    <list default="true" id="b2cf13ca-5cfb-4b46-a367-d792a32035e0" name="Changes" comment="Changed path to dictionaries">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/view/ControlsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/view/ControlsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/view/custom_panels/FormedWordsContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/view/custom_panels/FormedWordsContainer.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,7 +18,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -22,199 +26,404 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 0
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: -1
 }</component>
-  <component name="ProjectId" id="2egAMcDBicOOw2XatzKi2JTs8hn" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2gT7VawVzSjQfKTceSe07jupm7p" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.All in Balda.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.FieldTests.checkNeighbourKnowledgeFor33Cell.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.GameBuilderTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.GameBuilderTests.testCreatingField.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.GameBuilderTests.testFieldInvalidHeightWidth.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.GameBuilderTests.testFieldNotContainsWord.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.java in Balda.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/jadae/IdeaProjects/Balda&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/jadae/IdeaProjects/Balda/src/main/java/ru/jadae/Main.java&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.jadae.Main" />
+  <component name="RunManager">
+    <configuration name="All in Balda" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Balda" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.jadae.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameBuilderTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AlphabetTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Balda" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GameBuilderTests" />
+      <option name="MAIN_CLASS_NAME" value="AlphabetTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameBuilderTests.testFieldInvalidHeightWidth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FieldTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Balda" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GameBuilderTests" />
-      <option name="METHOD_NAME" value="testFieldInvalidHeightWidth" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="FieldTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameBuilderTests.testFieldNotContainsWord" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameTests.gameEndsCorrectly1stWinner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Balda" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GameBuilderTests" />
-      <option name="METHOD_NAME" value="testFieldNotContainsWord" />
+      <option name="MAIN_CLASS_NAME" value="GameTests" />
+      <option name="METHOD_NAME" value="gameEndsCorrectly1stWinner" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="java in Balda" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Balda" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.java in Balda" />
-        <item itemvalue="JUnit.GameBuilderTests" />
-        <item itemvalue="JUnit.GameBuilderTests.testFieldNotContainsWord" />
-        <item itemvalue="JUnit.GameBuilderTests.testFieldInvalidHeightWidth" />
+        <item itemvalue="JUnit.All in Balda" />
+        <item itemvalue="JUnit.GameTests.gameEndsCorrectly1stWinner" />
+        <item itemvalue="JUnit.FieldTests" />
+        <item itemvalue="JUnit.AlphabetTests" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="640b1adf-fe7d-4d9b-b8f4-a8ea102498cb" name="Changes" comment="" />
-      <created>1712315807610</created>
+      <changelist id="b2cf13ca-5cfb-4b46-a367-d792a32035e0" name="Changes" comment="" />
+      <created>1715709738031</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1712315807610</updated>
-      <workItem from="1712315808796" duration="2298000" />
-      <workItem from="1712395777408" duration="74000" />
-      <workItem from="1712561872769" duration="256000" />
-      <workItem from="1712814368187" duration="1459000" />
-      <workItem from="1712818971322" duration="265000" />
-      <workItem from="1713505562172" duration="1117000" />
-      <workItem from="1713510199781" duration="542000" />
-      <workItem from="1713516377032" duration="3753000" />
-      <workItem from="1714726650396" duration="459000" />
-      <workItem from="1715078717909" duration="605000" />
-      <workItem from="1715339177197" duration="331000" />
-      <workItem from="1715339739207" duration="1932000" />
-      <workItem from="1715378947115" duration="1385000" />
-      <workItem from="1715418066881" duration="2116000" />
-      <workItem from="1715423304398" duration="4568000" />
-      <workItem from="1715514099972" duration="252000" />
+      <updated>1715709738031</updated>
+      <workItem from="1715709739091" duration="4000" />
+      <workItem from="1715709775579" duration="1232000" />
+      <workItem from="1715711382631" duration="3313000" />
+      <workItem from="1715724114354" duration="3135000" />
+      <workItem from="1715766733438" duration="5401000" />
     </task>
-    <task id="LOCAL-00001" summary="Moved entities to model package">
+    <task id="LOCAL-00001" summary="Changed view logic">
       <option name="closed" value="true" />
-      <created>1712844148509</created>
+      <created>1715709858424</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1712844148509</updated>
+      <updated>1715709858424</updated>
     </task>
-    <task id="LOCAL-00002" summary="Added view classes">
+    <task id="LOCAL-00002" summary="Added lists for valid field sizes and languages">
       <option name="closed" value="true" />
-      <created>1715514235670</created>
+      <created>1715709971014</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1715514235670</updated>
+      <updated>1715709971014</updated>
     </task>
-    <task id="LOCAL-00003" summary="Changed scope of the GameBuilder class">
+    <task id="LOCAL-00003" summary="Added validation for field dimension size">
       <option name="closed" value="true" />
-      <created>1715514288296</created>
+      <created>1715710025650</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1715514288298</updated>
+      <updated>1715710025650</updated>
     </task>
-    <task id="LOCAL-00004" summary="Changed tests for GameBuilder">
+    <task id="LOCAL-00004" summary="Added option for english dictionary">
       <option name="closed" value="true" />
-      <created>1715514323449</created>
+      <created>1715710136493</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1715514323449</updated>
+      <updated>1715710136493</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Removed unnecessary console listener">
+      <option name="closed" value="true" />
+      <created>1715710180836</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710180836</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Changed players initialization">
+      <option name="closed" value="true" />
+      <created>1715710219470</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710219470</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Changed init method">
+      <option name="closed" value="true" />
+      <created>1715710233339</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710233339</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added fields to game">
+      <option name="closed" value="true" />
+      <created>1715710302636</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710302636</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Split main cycle into methods">
+      <option name="closed" value="true" />
+      <created>1715710332926</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710332926</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Result message is contained inside field gameResultMessage">
+      <option name="closed" value="true" />
+      <created>1715710392593</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710392593</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Polish">
+      <option name="closed" value="true" />
+      <created>1715710411232</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710411232</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added words to dictionaries">
+      <option name="closed" value="true" />
+      <created>1715710426952</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710426952</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Field now contains the word written in the middle lane">
+      <option name="closed" value="true" />
+      <created>1715710474312</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710474312</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added fieldPanel logic">
+      <option name="closed" value="true" />
+      <created>1715710510001</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710510001</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added styles class containing fonts and colors for view">
+      <option name="closed" value="true" />
+      <created>1715710539223</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710539223</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added CellSubSequencePanel logic">
+      <option name="closed" value="true" />
+      <created>1715710574192</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710574192</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added ControlsPanel logic">
+      <option name="closed" value="true" />
+      <created>1715710581550</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710581550</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added ActionButton logic">
+      <option name="closed" value="true" />
+      <created>1715710594297</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710594297</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added FormedWordsContainer logic">
+      <option name="closed" value="true" />
+      <created>1715710608623</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710608623</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added MenuTextField logic">
+      <option name="closed" value="true" />
+      <created>1715710618685</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710618685</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Skip move now returns cell if it was already selected">
+      <option name="closed" value="true" />
+      <created>1715710661417</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710661417</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added rethrow for InvalidFormedWord exception">
+      <option name="closed" value="true" />
+      <created>1715710740337</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710740337</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Changed tests for GameBuilder">
+      <option name="closed" value="true" />
+      <created>1715710758130</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710758130</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Changed tests for Game">
+      <option name="closed" value="true" />
+      <created>1715710766922</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710766922</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added InvalidFormedWord exception treatment">
+      <option name="closed" value="true" />
+      <created>1715710817664</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710817664</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Changed the way application starts">
+      <option name="closed" value="true" />
+      <created>1715710862285</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710862285</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Added path to the second dictionary">
+      <option name="closed" value="true" />
+      <created>1715710884279</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1715710884279</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added exception for duplicate word">
+      <option name="closed" value="true" />
+      <created>1715725201008</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1715725201008</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added exception handling">
+      <option name="closed" value="true" />
+      <created>1715725282557</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1715725282557</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Split condition for handling duplicate word exception">
+      <option name="closed" value="true" />
+      <created>1715725338352</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1715725338352</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Added skip counter (violate gameflow after 2 skips in a row)">
+      <option name="closed" value="true" />
+      <created>1715725432017</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1715725432017</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Added cleaning formed words after game is over">
+      <option name="closed" value="true" />
+      <created>1715725467176</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1715725467176</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Bound move cancel for esc button">
+      <option name="closed" value="true" />
+      <created>1715725502285</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1715725502285</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Added mock for wordFormer">
+      <option name="closed" value="true" />
+      <created>1715725528297</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1715725528297</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Changed path to dictionaries">
+      <option name="closed" value="true" />
+      <created>1715725546121</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1715725546121</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Moved entities to model package" />
-    <MESSAGE value="Added view classes" />
-    <MESSAGE value="Changed scope of the GameBuilder class" />
+    <MESSAGE value="Polish" />
+    <MESSAGE value="Added words to dictionaries" />
+    <MESSAGE value="Field now contains the word written in the middle lane" />
+    <MESSAGE value="Added fieldPanel logic" />
+    <MESSAGE value="Added styles class containing fonts and colors for view" />
+    <MESSAGE value="Added CellSubSequencePanel logic" />
+    <MESSAGE value="Added ControlsPanel logic" />
+    <MESSAGE value="Added ActionButton logic" />
+    <MESSAGE value="Added FormedWordsContainer logic" />
+    <MESSAGE value="Added MenuTextField logic" />
+    <MESSAGE value="Skip move now returns cell if it was already selected" />
+    <MESSAGE value="Added rethrow for InvalidFormedWord exception" />
     <MESSAGE value="Changed tests for GameBuilder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed tests for GameBuilder" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/jadae/builder/GameBuilder.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/jadae/builder/GameBuilder.java</url>
-          <line>82</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/jadae/Main.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Changed tests for Game" />
+    <MESSAGE value="Added InvalidFormedWord exception treatment" />
+    <MESSAGE value="Changed the way application starts" />
+    <MESSAGE value="Added path to the second dictionary" />
+    <MESSAGE value="Added exception for duplicate word" />
+    <MESSAGE value="Added exception handling" />
+    <MESSAGE value="Split condition for handling duplicate word exception" />
+    <MESSAGE value="Added skip counter (violate gameflow after 2 skips in a row)" />
+    <MESSAGE value="Added cleaning formed words after game is over" />
+    <MESSAGE value="Bound move cancel for esc button" />
+    <MESSAGE value="Added mock for wordFormer" />
+    <MESSAGE value="Changed path to dictionaries" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed path to dictionaries" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Balda$All_in_Balda.ic" NAME="All in Balda Coverage Results" MODIFIED="1713516779802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Balda$All_in_Balda.ic" NAME="All in Balda Coverage Results" MODIFIED="1715725155582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Balda$FieldTests.ic" NAME="FieldTests Coverage Results" MODIFIED="1715715133179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

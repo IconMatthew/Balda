@@ -1,7 +1,8 @@
 package ru.jadae.model;
 
 import lombok.Getter;
-import ru.jadae.in.PlayerActionListener;
+import ru.jadae.exceptions.DuplicateWord;
+import ru.jadae.exceptions.InvalidFormedWord;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,109 +12,129 @@ import java.util.Map;
 public class Game {
     private final List<Player> players;
     private final Field field;
-    private final PlayerActionListener playerActionListener;
     private boolean breakTheGameFlow = false;
+    private Player activePlayer;
+    private boolean gameOver = false;
+    private String gameResultMessage;
+    private int skipCounter = 0;
 
-    public Game(List<Player> players, Field field, PlayerActionListener playerActionListener) {
+    public Game(List<Player> players, Field field) {
         this.players = players;
         this.field = field;
-        this.playerActionListener = playerActionListener;
+        this.activePlayer = changePlayersStatus();
     }
 
-    public void gameCycle() {
-        Player activePlayer = changePlayersStatus();
-
-        while (!checkGameEnd()) {
-            System.out.println("//---------- Current player - " + activePlayer.getPlayerName() + " ----------//\n" +
-                    "Actions available:\n" +
-                    "Set cell active for inserting letter (1)\n" +
-                    "Enter letter into cell (2)\n" +
-                    "Select cell for word formation (3)\n" +
-                    "Submit finishing move (4)\n" +
-                    "Cancel move (5)\n" +
-                    "Skip move (6)\n" +
-                    "Add word to dictionary (7)\n" +
-                    "Violate the game flow (8)");
-            String action = playerActionListener.readUserAction();
-
-            switch (action) {
-                case "1" -> {
-                    try {
-                        System.out.println("Enter cell coords");
-                        int[] params = playerActionListener.readHeightAndWidth();
-                        activePlayer.setCellActiveForInsertingLetter(field.getCellByPosIndexes(params[0], params[1]));
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
-                case "2" -> {
-                    try {
-                        System.out.println("Enter letter");
-                        Character letter = playerActionListener.readLetter();
-                        activePlayer.enterLetterToCell(letter);
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
-                case "3" -> {
-                    try {
-                        System.out.println("Enter cell coords");
-                        int[] params = playerActionListener.readHeightAndWidth();
-                        activePlayer.addCellToWord(field.getCellByPosIndexes(params[0], params[1]));
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
-                case "4" -> {
-                    try {
-                        activePlayer.submitMoveFinished();
-                        activePlayer = changePlayersStatus();
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
-                case "5" -> {
-                    try {
-                        activePlayer.cancelMove();
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
-                case "6" -> {
-                    try {
-                        activePlayer.skipMove();
-                        activePlayer = changePlayersStatus();
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
-                case "7" -> {
-                    try {
-                        activePlayer.addWordToDictionary(playerActionListener.readUserAction());
-                    } catch (IllegalArgumentException e) {
-                        System.out.println(e.getMessage());
-                    }
-
-                }
-                case "8" -> this.breakTheGameFlow = true;
-            }
+    public void step1SelectCell(Cell cell) {
+        try {
+            System.out.println("Pick cell");
+            activePlayer.setCellActiveForInsertingLetter(field.getCellByPosIndexes(cell.getHeightPos(), cell.getWidthPos()));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
+    }
+
+    public void step2InsertLetter(Character letter) {
+
+        if (checkGameEnd()) return;
+
+        try {
+            System.out.println("Enter letter");
+            activePlayer.enterLetterToCell(letter);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void step3ChooseCell(Cell cell) {
+
+        try {
+            System.out.println("Pick cell");
+            activePlayer.addCellToWord(field.getCellByPosIndexes(cell.getHeightPos(), cell.getWidthPos()));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public boolean step4FinishMove() {
+
+        try {
+            activePlayer.submitMoveFinished();
+            checkGameEnd();
+            activePlayer = changePlayersStatus();
+            skipCounter = 0;
+            return true;
+        }
+        catch (DuplicateWord e) {
+            System.out.println(e.getMessage());
+            throw new DuplicateWord();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    public void additionalStep1CancelMove() {
+
+        try {
+            activePlayer.cancelMove();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void additionalStep2SkipMove() {
+
+        try {
+            Cell cell = activePlayer.skipMove();
+            this.skipCounter++;
+            if (cell != null) {
+                this.field.getCellByPosIndexes(cell.getHeightPos(), cell.getWidthPos()).setCellValue(null);
+            }
+            activePlayer = changePlayersStatus();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        if (skipCounter > 1){
+            additionalStep4FinishGame();
+        }
+    }
+
+    public void additionalStep3AddWordToDictionary(String word) {
+
+        try {
+            activePlayer.addWordToDictionary(word);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void additionalStep4FinishGame() {
+        this.breakTheGameFlow = true;
+        checkGameEnd();
     }
 
     private boolean checkGameEnd() {
         if (!this.field.containsEmptyCells() || this.breakTheGameFlow) {
             Map<Player, Integer> playerToScore = detectWinner();
             if (playerToScore.size() > 1) {
-                System.out.println("Ничья!\n"
+                gameResultMessage = "Ничья!\n"
                         + "Очки для игрока - " + players.get(0).getPlayerName() + ": " + playerToScore.get(players.get(0)) + "\n"
-                        + "Очки для игрока - " + players.get(1).getPlayerName() + ": " + playerToScore.get(players.get(1)));
+                        + "Очки для игрока - " + players.get(1).getPlayerName() + ": " + playerToScore.get(players.get(1));
             } else {
                 if (!playerToScore.isEmpty()) {
                     Player winner = playerToScore.containsKey(players.get(0)) ? players.get(0) : players.get(1);
-                    System.out.println("Победил " + winner.getPlayerName() + "\n" +
-                            "Очки: " + playerToScore.get(winner));
+                    gameResultMessage = "Победил " + winner.getPlayerName() + "\n" +
+                            "Очки: " + playerToScore.get(winner);
                 } else System.out.println("Победитель не выявлен");
+                for (Player player:players) {
+                    player.cleanAllFormedWords();
+                    player.getWordFormer().getDictionary().cleanFormedWords();
+                }
             }
+
+            this.gameOver = true;
+            this.skipCounter = 0;
             return true;
         }
         return false;

@@ -1,6 +1,7 @@
 package ru.jadae.model;
 
 import lombok.Getter;
+import ru.jadae.exceptions.DuplicateWord;
 import ru.jadae.exceptions.InvalidFormedWord;
 import ru.jadae.exceptions.StepInterruptedException;
 
@@ -39,9 +40,11 @@ public class WordFormer {
             word.append(character);
         }
 
-        if (!dictionary.containsWord(word.toString())
-                || dictionary.wasFormedBefore(word.toString())
-                || !queueOfCells.contains(cellWithAddedLetter)) {
+        if (dictionary.wasFormedBefore(word.toString())){
+            throw new DuplicateWord();
+        }
+
+        if (!dictionary.containsWord(word.toString()) || !queueOfCells.contains(cellWithAddedLetter)) {
             throw new InvalidFormedWord();
         }
 

@@ -3,11 +3,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.jadae.builder.GameBuilder;
+import ru.jadae.enums.Languages;
 import ru.jadae.exceptions.InitException;
-import ru.jadae.in.PlayerActionListener;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class GameBuilderTests {
 
@@ -18,45 +15,30 @@ public class GameBuilderTests {
 
     @Test
     void testCreatingField() {
-        PlayerActionListener reader = mock(PlayerActionListener.class);
-        when(reader.readUserAction()).thenReturn("name1").thenReturn("name2");
-        when(reader.readHeightAndWidth()).thenReturn(new int[]{5, 5});
-
-        GameBuilder gameBuilder = GameBuilder.getInstance(reader);
+        GameBuilder gameBuilder = GameBuilder.getInstance();
+        gameBuilder.setDictionary(Languages.RUS);
+        gameBuilder.setField(5);
         Assertions.assertEquals(5, gameBuilder.getField().getFieldHeight());
         Assertions.assertEquals(5, gameBuilder.getField().getFieldWidth());
     }
 
     @Test
     void testFieldContainsWord() {
-        PlayerActionListener reader = mock(PlayerActionListener.class);
-        when(reader.readUserAction()).thenReturn("name1").thenReturn("name2");
-        when(reader.readHeightAndWidth()).thenReturn(new int[]{5, 5});
+        GameBuilder gameBuilder = GameBuilder.getInstance();
+        gameBuilder.setDictionary(Languages.RUS);
+        gameBuilder.setField(3);
 
-        GameBuilder gameBuilder = GameBuilder.getInstance(reader);
-        Assertions.assertNotNull(gameBuilder.getField().getCells()[2][2]);
-    }
-
-    @Test
-    void testFieldNotContainsWord() {
-        PlayerActionListener reader = mock(PlayerActionListener.class);
-        when(reader.readUserAction()).thenReturn("name1").thenReturn("name2");
-        when(reader.readHeightAndWidth()).thenReturn(new int[]{6, 6});
-
-        Assertions.assertThrows(InitException.class, () -> {
-            GameBuilder.getInstance(reader);
-        });
+        Assertions.assertNotNull(gameBuilder.getField().getCells()[1][0]);
+        Assertions.assertNotNull(gameBuilder.getField().getCells()[1][1]);
+        Assertions.assertNotNull(gameBuilder.getField().getCells()[1][2]);
     }
 
     @Test
     void testFieldInvalidHeightWidth() {
-        PlayerActionListener reader = mock(PlayerActionListener.class);
-        when(reader.readUserAction()).thenReturn("name1").thenReturn("name2");
-        when(reader.readHeightAndWidth()).thenReturn(new int[]{2, 2});
+        GameBuilder gameBuilder = GameBuilder.getInstance();
+        gameBuilder.setDictionary(Languages.RUS);
 
-        Assertions.assertThrows(InitException.class, () -> {
-            GameBuilder.getInstance(reader);
-        });
+        Assertions.assertThrows(InitException.class, () -> gameBuilder.setField(11));
     }
 
 }

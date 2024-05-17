@@ -1,133 +1,123 @@
 package ru.jadae.view;
 
 
+import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
-import ru.jadae.in.PlayerActionListener;
 import ru.jadae.model.Game;
-import ru.jadae.model.Player;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
+@Getter
 public class GamePanel extends JPanel {
-    private final GameFrame _owner;
-    private GameFieldPanel _fieldView;
-    private ArrayList<PlayersPanel> _playersPanels = new ArrayList<>();
-    private GameControlPanel _gameControlPanel;
-    private CellSequencePanel _cellSequencePanel;
+    private final GameFrame owner;
+    private final FieldPanel fieldView;
+    private final ArrayList<PlayersPanel> playersPanels = new ArrayList<>();
+    private final ControlsPanel controlsPanel;
+    private final CellSubSequencePanel cellSubSequencePanel;
 
-    private Game _game;
+    private Game game;
 
     public GamePanel(@NotNull GameFrame gameFrame) {
-        _owner = gameFrame;
+        owner = gameFrame;
 
         setLayout(new BorderLayout(30, 20));
-        setBorder(BorderFactory.createEmptyBorder(20, 50,20, 50));
+        setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50));
 
-        _fieldView = new GameFieldPanel(this);
-        _cellSequencePanel = new CellSequencePanel(this);
+        fieldView = new FieldPanel(this);
+        cellSubSequencePanel = new CellSubSequencePanel(this);
 
         JPanel centerPanel = new JPanel();
         centerPanel.setLayout(new BorderLayout(10, 10));
 
-        centerPanel.add(_fieldView, BorderLayout.CENTER);
-        centerPanel.add(_cellSequencePanel, BorderLayout.NORTH);
+        centerPanel.add(fieldView, BorderLayout.CENTER);
+        centerPanel.add(cellSubSequencePanel, BorderLayout.NORTH);
 
         add(centerPanel, BorderLayout.CENTER);
 
-//        var panelPlayer1 = new PlayersPanel(this);
-//        _playersPanels.add(panelPlayer1);
-//        add(panelPlayer1, BorderLayout.WEST);
-//
-//        var panelPlayer2 = new PlayersPanel(this);
-//        _playersPanels.add(panelPlayer2);
-//        add(panelPlayer2, BorderLayout.EAST);
+        var panelPlayer1 = new PlayersPanel(this);
+        playersPanels.add(panelPlayer1);
+        add(panelPlayer1, BorderLayout.WEST);
 
-        _gameControlPanel = new GameControlPanel(this);
-        add(_gameControlPanel, BorderLayout.SOUTH);
+        var panelPlayer2 = new PlayersPanel(this);
+        playersPanels.add(panelPlayer2);
+        add(panelPlayer2, BorderLayout.EAST);
 
-        //addKeyListener( new KeyController() );
+        controlsPanel = new ControlsPanel(this);
+        add(controlsPanel, BorderLayout.SOUTH);
+
+        addKeyListener(new KeyController());
         setVisible(true);
         setFocusable(true);
         requestFocus();
     }
 
-    //public Game currentGame() { return _game; }
+    public void setGameModel(@NotNull Game game) {
+        this.game = game;
+        fieldView.initField();
+        playersPanels.get(0).setObservablePlayer(this.game.getPlayers().get(0));
+        playersPanels.get(1).setObservablePlayer(this.game.getPlayers().get(1));
+    }
 
-    public void setGameModel(@NotNull Game model) {
-//        model.addGameListener(new GameObserver());
-//        model.addPlayerActionListener(new PlayerObserver());
-//        _game = model;
-//        _fieldView.initField();
-//        _playersPanels.get(0).setObservablePlayer(_game.players().get(0));
-//        _playersPanels.get(1).setObservablePlayer(_game.players().get(1));
+    public void suggestAddingWordToDictionary() {
+        int option = JOptionPane.showConfirmDialog(null, "Хотите добавить слово в словарь?",
+                "Confirmation", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION) {
+            String word = this.game.getActivePlayer().getWordFormer().getQueueOfCells().stream()
+                    .map(cell -> String.valueOf(cell.getCellValue()))
+                    .collect(Collectors.joining());
+
+            this.game.additionalStep3AddWordToDictionary(word);
+
+        }
     }
 
     public void update() {
-        //_fieldView.update();
-        _playersPanels.forEach(PlayersPanel::update);
-        _cellSequencePanel.update();
+
+        fieldView.update();
+        cellSubSequencePanel.update();
+
+        if (this.game.isGameOver()) {
+            JOptionPane.showMessageDialog(owner, this.game.getGameResultMessage());
+            owner.toStartMenu();
+        }
+
+        playersPanels.forEach(PlayersPanel::update);
     }
 
-//    private class PlayerObserver implements PlayerActionListener {
-//
-//        @Override
-//        public void turnIsSkipped(Player player) { }
-//
-//        @Override
-//        public void labelIsSelected(Player player) { _fieldView.updateCell(player.getSelectedCell()); }
-//
-//        @Override
-//        public void cellIsSelected(Player player) { _fieldView.updateCell(player.getSelectedCell());}
-//
-//        @Override
-//        public void sequenceCellIsDefined(Player player) { }
-//
-//        @Override
-//        public void addedCellInSequence(Player player) {
-//            _fieldView.updateCell(player.currentSequence().getLastCell());
-//            _cellSequencePanel.update();
-//        }
-//    }
+    private class KeyController implements KeyListener {
 
-//    private class GameObserver implements GameModelListener{
-//
-//        @Override
-//        public void gameFinished(GameModelEvent event) {
-//            ArrayList<String> winners = event.score().getNamePlayersWithMaxScore();
-//            String result = (winners.size() == 1)? "Победил: " + winners.get(0) : "Ничья!";
-//
-//            JOptionPane.showMessageDialog(_owner,result);
-//            _owner.toStartMenu();
-//        }
-//
-//        @Override
-//        public void playerExchanged(GameModelEvent event) { update(); }
-//    }
+        @Override
+        public void keyTyped(KeyEvent e) {
+        }
 
-//    private class KeyController implements KeyListener {
-//
-//        @Override
-//        public void keyTyped(KeyEvent e) { }
-//
-//        @Override
-//        public void keyPressed(KeyEvent e) {
-//            boolean isTimeSetSymbol = _game.activePlayer().getSelectedCell() != null;
-//            isTimeSetSymbol &= _game.activePlayer().getSelectedSymbol() == null;
-//
-//            try {
-//                if (isTimeSetSymbol && Character.isAlphabetic(e.getKeyChar())) {
-//                    _game.activePlayer().setSelectedSymbol(e.getKeyChar());
-//                }
-//            } catch (CustomGameException exception) {
-//                JOptionPane.showMessageDialog(_owner, exception.getMessage(),"Ошибка", JOptionPane.ERROR_MESSAGE);
-//            }
-//        }
-//
-//        @Override
-//        public void keyReleased(KeyEvent e) { }
-//    }
+        @Override
+        public void keyPressed(KeyEvent e) {
+
+            if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                game.additionalStep1CancelMove();
+                update();
+                return;
+            }
+
+            boolean isTimeSetSymbol = game.getActivePlayer().isFirstStepIsDone();
+            isTimeSetSymbol &= !game.getActivePlayer().isSecondStepIsDone();
+            try {
+                if (isTimeSetSymbol) {
+                    game.step2InsertLetter(e.getKeyChar());
+                    update();
+                }
+            } catch (Exception exception) {
+                JOptionPane.showMessageDialog(owner, exception.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+        }
+    }
 }

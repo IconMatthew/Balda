@@ -2,7 +2,7 @@ package ru.jadae.view.utils;
 
 import java.awt.*;
 
-public class AppStyles {
+public class Styles {
     public static Color PRIMARY_COLOR = Color.WHITE;
     public static Color SECONDARY_COLOR = Color.decode("#f3f3f3");
     public static Color SELECTED_TO_CREATE_WORD_COLOR = Color.decode("#B0C6D6");

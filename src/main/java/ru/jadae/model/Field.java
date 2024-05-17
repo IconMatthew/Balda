@@ -7,6 +7,7 @@ public class Field {
     private final int fieldHeight;
     private final int fieldWidth;
     private Cell[][] cells;
+    private String word;
 
     public Field(int fieldHeight, int fieldWidth) {
         this.fieldHeight = fieldHeight;
@@ -46,6 +47,8 @@ public class Field {
     }
 
     public void writeTheWordIntoMiddleRow(String word) {
+
+        this.word = word;
 
         if (word.length() != fieldWidth) throw new IllegalArgumentException("Invalid word length");
 
