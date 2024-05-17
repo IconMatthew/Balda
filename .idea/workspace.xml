@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="640b1adf-fe7d-4d9b-b8f4-a8ea102498cb" name="Changes" comment="Changed tests for GameBuilder" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2egAMcDBicOOw2XatzKi2JTs8hn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in Balda.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.FieldTests.checkNeighbourKnowledgeFor33Cell.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameBuilderTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameBuilderTests.testCreatingField.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameBuilderTests.testFieldInvalidHeightWidth.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameBuilderTests.testFieldNotContainsWord.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in Balda.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jadae/IdeaProjects/Balda&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/jadae/IdeaProjects/Balda/src/main/java/ru/jadae/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.jadae.Main" />
+      <module name="Balda" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.jadae.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameBuilderTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Balda" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GameBuilderTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameBuilderTests.testFieldInvalidHeightWidth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Balda" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GameBuilderTests" />
+      <option name="METHOD_NAME" value="testFieldInvalidHeightWidth" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameBuilderTests.testFieldNotContainsWord" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Balda" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GameBuilderTests" />
+      <option name="METHOD_NAME" value="testFieldNotContainsWord" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in Balda" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Balda" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.java in Balda" />
+        <item itemvalue="JUnit.GameBuilderTests" />
+        <item itemvalue="JUnit.GameBuilderTests.testFieldNotContainsWord" />
+        <item itemvalue="JUnit.GameBuilderTests.testFieldInvalidHeightWidth" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="640b1adf-fe7d-4d9b-b8f4-a8ea102498cb" name="Changes" comment="" />
+      <created>1712315807610</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712315807610</updated>
+      <workItem from="1712315808796" duration="2298000" />
+      <workItem from="1712395777408" duration="74000" />
+      <workItem from="1712561872769" duration="256000" />
+      <workItem from="1712814368187" duration="1459000" />
+      <workItem from="1712818971322" duration="265000" />
+      <workItem from="1713505562172" duration="1117000" />
+      <workItem from="1713510199781" duration="542000" />
+      <workItem from="1713516377032" duration="3753000" />
+      <workItem from="1714726650396" duration="459000" />
+      <workItem from="1715078717909" duration="605000" />
+      <workItem from="1715339177197" duration="331000" />
+      <workItem from="1715339739207" duration="1932000" />
+      <workItem from="1715378947115" duration="1385000" />
+      <workItem from="1715418066881" duration="2116000" />
+      <workItem from="1715423304398" duration="4568000" />
+      <workItem from="1715514099972" duration="252000" />
+    </task>
+    <task id="LOCAL-00001" summary="Moved entities to model package">
+      <option name="closed" value="true" />
+      <created>1712844148509</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712844148509</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added view classes">
+      <option name="closed" value="true" />
+      <created>1715514235670</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715514235670</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Changed scope of the GameBuilder class">
+      <option name="closed" value="true" />
+      <created>1715514288296</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715514288298</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Changed tests for GameBuilder">
+      <option name="closed" value="true" />
+      <created>1715514323449</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715514323449</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Moved entities to model package" />
+    <MESSAGE value="Added view classes" />
+    <MESSAGE value="Changed scope of the GameBuilder class" />
+    <MESSAGE value="Changed tests for GameBuilder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed tests for GameBuilder" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/jadae/builder/GameBuilder.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/jadae/builder/GameBuilder.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/jadae/Main.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Balda$All_in_Balda.ic" NAME="All in Balda Coverage Results" MODIFIED="1713516779802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
