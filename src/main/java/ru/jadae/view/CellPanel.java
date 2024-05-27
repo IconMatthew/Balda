@@ -21,7 +21,7 @@ public class CellPanel extends JButton {
             case 3 -> fontSize = 64;
             case 5 -> fontSize = 44;
             case 7 -> fontSize = 20;
-            default -> fontSize = 12;
+            default -> fontSize = 11;
         }
 
         setFont(new Font("Century Gothic", Font.PLAIN, fontSize));
