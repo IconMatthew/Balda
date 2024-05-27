@@ -161,18 +161,23 @@ public class Game {
     }
 
     private Player changePlayersStatus() {
-        if (!players.get(0).isActive() && !players.get(1).isActive()) {
-            players.get(0).setActive(true);
-            return players.get(0);
-        } else if (players.get(0).isActive() && !players.get(1).isActive()) {
-            players.get(0).setActive(false);
-            players.get(1).setActive(true);
-            return players.get(1);
-        } else {
-            players.get(0).setActive(true);
-            players.get(1).setActive(false);
-            return players.get(0);
+
+        for (int i = 0; i < players.size(); i++) {
+            if (players.get(i).isActive()){
+                players.get(i).setActive(false);
+                if (i != players.size() - 1){
+                    players.get(i+1).setActive(true);
+                    return players.get(i+1);
+                }
+                else {
+                    players.get(0).setActive(true);
+                    return players.get(0);
+                }
+            }
         }
+
+        players.get(0).setActive(true);
+        return players.get(0);
     }
 
 }
