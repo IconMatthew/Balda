@@ -18,13 +18,8 @@ public class PlayerTests {
 
     Player init() {
         Dictionary dictionary = null;
-        Properties properties = new Properties();
-        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("application.properties")) {
-            properties.load(inputStream);
-            String filePath = properties.getProperty("dictionary1.filepath");
-            dictionary = new Dictionary(filePath, Languages.RUS);
-        } catch (IOException ignored) {
-        }
+
+        dictionary = new Dictionary("dictionary1.txt", Languages.RUS);
 
         return new Player("name", new WordFormer(dictionary));
     }
