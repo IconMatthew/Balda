@@ -72,7 +72,7 @@ public class GamePanel extends JPanel {
                     .collect(Collectors.joining());
 
             this.game.additionalStep3AddWordToDictionary(word);
-
+            this.game.step4FinishMove();
         }
     }
 

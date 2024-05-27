@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2cf13ca-5cfb-4b46-a367-d792a32035e0" name="Changes" comment="Changed absolute path to relative for dictionaries">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/view/CellPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/view/CellPanel.java" afterDir="false" />
+    <list default="true" id="b2cf13ca-5cfb-4b46-a367-d792a32035e0" name="Changes" comment="Changed input logic for PlayerTests">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/view/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/view/GamePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,23 +32,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jadae/IdeaProjects/loan-processor&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "JUnit.All in Balda.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/jadae/IdeaProjects/loan-processor",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="JUnit.All in Balda">
     <configuration name="All in Balda" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Balda" />
@@ -121,7 +123,7 @@
       <workItem from="1716461211571" duration="27000" />
       <workItem from="1716812316182" duration="2744000" />
       <workItem from="1716815204438" duration="24000" />
-      <workItem from="1716816289384" duration="310000" />
+      <workItem from="1716816289384" duration="890000" />
     </task>
     <task id="LOCAL-00001" summary="Changed view logic">
       <option name="closed" value="true" />
@@ -411,15 +413,29 @@
       <option name="project" value="LOCAL" />
       <updated>1716816414761</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Changed font-size for default dimension">
+      <option name="closed" value="true" />
+      <created>1716816725699</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1716816725699</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Changed input logic for PlayerTests">
+      <option name="closed" value="true" />
+      <created>1716817217169</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1716817217169</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Field now contains the word written in the middle lane" />
-    <MESSAGE value="Added fieldPanel logic" />
     <MESSAGE value="Added styles class containing fonts and colors for view" />
     <MESSAGE value="Added CellSubSequencePanel logic" />
     <MESSAGE value="Added ControlsPanel logic" />
@@ -443,7 +459,9 @@
     <MESSAGE value="Changed path to dictionaries" />
     <MESSAGE value="aaaaaa" />
     <MESSAGE value="Changed absolute path to relative for dictionaries" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed absolute path to relative for dictionaries" />
+    <MESSAGE value="Changed font-size for default dimension" />
+    <MESSAGE value="Changed input logic for PlayerTests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed input logic for PlayerTests" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Balda$All_in_Balda.ic" NAME="All in Balda Coverage Results" MODIFIED="1715725155582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
