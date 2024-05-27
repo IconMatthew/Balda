@@ -108,7 +108,8 @@ public class GamePanel extends JPanel {
             isTimeSetSymbol &= !game.getActivePlayer().isSecondStepIsDone();
             try {
                 if (isTimeSetSymbol) {
-                    game.step2InsertLetter(e.getKeyChar());
+                    Character lowerCaseCharacter = String.valueOf(e.getKeyChar()).toLowerCase().charAt(0);
+                    game.step2InsertLetter(lowerCaseCharacter);
                     update();
                 }
             } catch (Exception exception) {

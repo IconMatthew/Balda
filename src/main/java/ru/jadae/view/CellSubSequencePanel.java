@@ -39,7 +39,7 @@ public class CellSubSequencePanel extends FormedWordsContainer {
             updatedText.append(Character.toUpperCase(cellList.get(i).getCellValue()));
 
             if (i != cellList.size() - 1)
-                updatedText.append(" > ");
+                updatedText.append(" ");
         }
 
         cellSequenceView.setText(updatedText.toString());

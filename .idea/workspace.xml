@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2cf13ca-5cfb-4b46-a367-d792a32035e0" name="Changes" comment="Changed input logic for PlayerTests">
+    <list default="true" id="b2cf13ca-5cfb-4b46-a367-d792a32035e0" name="Changes" comment="Added step finish after player adds word to dictionary">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/view/CellSubSequencePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/view/CellSubSequencePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/view/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/view/GamePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,8 +35,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
+    "Application.Main.executor": "Debug",
     "JUnit.All in Balda.executor": "Run",
+    "JUnit.PlayerTests.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -50,7 +52,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.All in Balda">
+  <component name="RunManager">
     <configuration name="All in Balda" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Balda" />
       <option name="PACKAGE_NAME" value="" />
@@ -123,7 +125,9 @@
       <workItem from="1716461211571" duration="27000" />
       <workItem from="1716812316182" duration="2744000" />
       <workItem from="1716815204438" duration="24000" />
-      <workItem from="1716816289384" duration="890000" />
+      <workItem from="1716816289384" duration="959000" />
+      <workItem from="1716817400171" duration="33000" />
+      <workItem from="1716817653504" duration="700000" />
     </task>
     <task id="LOCAL-00001" summary="Changed view logic">
       <option name="closed" value="true" />
@@ -429,14 +433,21 @@
       <option name="project" value="LOCAL" />
       <updated>1716817217169</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Added step finish after player adds word to dictionary">
+      <option name="closed" value="true" />
+      <created>1716817253251</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1716817253251</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added styles class containing fonts and colors for view" />
     <MESSAGE value="Added CellSubSequencePanel logic" />
     <MESSAGE value="Added ControlsPanel logic" />
     <MESSAGE value="Added ActionButton logic" />
@@ -461,7 +472,19 @@
     <MESSAGE value="Changed absolute path to relative for dictionaries" />
     <MESSAGE value="Changed font-size for default dimension" />
     <MESSAGE value="Changed input logic for PlayerTests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed input logic for PlayerTests" />
+    <MESSAGE value="Added step finish after player adds word to dictionary" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added step finish after player adds word to dictionary" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/jadae/view/GamePanel.java</url>
+          <line>110</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Balda$All_in_Balda.ic" NAME="All in Balda Coverage Results" MODIFIED="1715725155582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
