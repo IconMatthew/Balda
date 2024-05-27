@@ -3,10 +3,7 @@ package ru.jadae.model;
 import ru.jadae.enums.Languages;
 import ru.jadae.exceptions.InitException;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,11 +34,13 @@ public class Dictionary {
     }
 
     public void loadWordsFromSource() {
+        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(filePath);
+             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
 
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath)))) {
             words = new ArrayList<>();
-            while (bufferedReader.ready()) {
-                words.add(bufferedReader.readLine());
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                words.add(line);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

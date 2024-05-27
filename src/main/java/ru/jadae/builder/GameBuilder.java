@@ -46,19 +46,11 @@ public class GameBuilder {
     }
 
     public void setDictionary(Languages language) {
-        Properties properties = new Properties();
-        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("application.properties")) {
-            properties.load(inputStream);
-
-            if (language.equals(Languages.RUS)) {
-                this.dictionary = new Dictionary(properties.getProperty("dictionary1.filepath"), Languages.RUS);
-            } else {
-                this.dictionary = new Dictionary(properties.getProperty("dictionary2.filepath"), Languages.ENG);
-            }
-
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-            throw new RuntimeException(e);
+        
+        if (language.equals(Languages.RUS)) {
+            this.dictionary = new Dictionary("dictionary1.txt", Languages.RUS);
+        } else {
+            this.dictionary = new Dictionary("dictionary2.txt", Languages.ENG);
         }
     }
 
