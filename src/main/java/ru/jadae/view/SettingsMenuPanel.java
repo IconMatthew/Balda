@@ -19,7 +19,6 @@ public class SettingsMenuPanel extends JPanel {
     private final JTextField secondPlayerNameField = new MenuTextField("Игрок 2");
     private final JComboBox<String> fieldSizeSelect;
     private final JLabel secondPlayerNameLabel = new JLabel("Второй игрок");
-    private final JLabel difficultyLevelLabel = new JLabel("Уровень сложности");
     private final JCheckBox isComputerPlayer = new JCheckBox("Против компьютера");
     private final JComboBox<String> alphabetSelect;
 
@@ -69,10 +68,6 @@ public class SettingsMenuPanel extends JPanel {
         secondPlayerNameLabel.setFont(Styles.LABEL_FONT);
         add(secondPlayerNameLabel, constraints);
 
-        difficultyLevelLabel.setFont(Styles.LABEL_FONT);
-        difficultyLevelLabel.setVisible(false);
-        add(difficultyLevelLabel, constraints);
-
         constraints.gridwidth = 3;
         constraints.gridx = 2;
         add(secondPlayerNameField, constraints);
@@ -106,11 +101,9 @@ public class SettingsMenuPanel extends JPanel {
         isComputerPlayer.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 secondPlayerNameField.setVisible(false);
-                difficultyLevelLabel.setVisible(true);
                 secondPlayerNameLabel.setVisible(false);
             } else {
                 secondPlayerNameField.setVisible(true);
-                difficultyLevelLabel.setVisible(false);
                 secondPlayerNameLabel.setVisible(true);
             }
         });
@@ -128,18 +121,16 @@ public class SettingsMenuPanel extends JPanel {
         String second = secondPlayerNameField.getText();
 
         GameBuilder.getInstance().setDictionary(Languages.valueOf((String) alphabetSelect.getSelectedItem()));
-        GameBuilder.getInstance().setPlayers(first, second);
         GameBuilder.getInstance().setField(
                 GameBuilder.getInstance().getValidFieldSizes().get(fieldSizeSelect.getSelectedIndex()));
 
         Game game;
         if (isComputerPlayer.isSelected()) {
-            // TODO compPlayer
-            game = GameBuilder.getInstance().initGame();
+            GameBuilder.getInstance().setHumanAndComputerPlayers(first);
         } else {
-            game = GameBuilder.getInstance().initGame();
+            GameBuilder.getInstance().setHumanPlayers(first, second);
         }
-
+        game = GameBuilder.getInstance().initGame();
         owner.runGame(game);
         setVisible(false);
     }
