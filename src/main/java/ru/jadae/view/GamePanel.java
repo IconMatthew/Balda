@@ -65,7 +65,7 @@ public class GamePanel extends JPanel {
 
     public void suggestAddingWordToDictionary() {
         int option = JOptionPane.showConfirmDialog(null, "Хотите добавить слово в словарь?",
-                "Confirmation", JOptionPane.YES_NO_OPTION);
+                "Подтверждение", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION) {
             String word = this.game.getActivePlayer().getWordFormer().getQueueOfCells().stream()
                     .map(cell -> String.valueOf(cell.getCellValue()))
