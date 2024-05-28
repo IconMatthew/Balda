@@ -75,7 +75,7 @@ public class GameTests {
     }
 
     @Test
-    void changeActivePlayer2Times() {
+    void changeActivePlayer2TimesGameIsOver() {
         List<Player> players = new ArrayList<>();
         players.add(new Player("1", new WordFormer(dictionary)));
         players.add(new Player("2", new WordFormer(dictionary)));
@@ -84,7 +84,7 @@ public class GameTests {
         game.additionalStep2SkipMove();
         game.additionalStep2SkipMove();
 
-        Assertions.assertTrue(players.get(0).isActive());
+        Assertions.assertFalse(players.get(0).isActive());
         Assertions.assertFalse(players.get(1).isActive());
     }
 
@@ -102,7 +102,7 @@ public class GameTests {
         when(field.containsEmptyCells()).thenReturn(true);
 
         Assertions.assertFalse(players.get(0).isActive());
-        Assertions.assertTrue(players.get(1).isActive());
+        Assertions.assertFalse(players.get(1).isActive());
     }
 
     @Test
@@ -423,7 +423,7 @@ public class GameTests {
     @Test
     void addValidWordToDictionary() {
         GameBuilder.getInstance().setDictionary(Languages.RUS);
-        GameBuilder.getInstance().setPlayers("1", "2");
+        GameBuilder.getInstance().setHumanPlayers("1", "2");
         GameBuilder.getInstance().setField(3);
         Game game = GameBuilder.getInstance().initGame();
 
@@ -463,7 +463,7 @@ public class GameTests {
     @Test
     void interruptGameFlow() {
         GameBuilder.getInstance().setDictionary(Languages.RUS);
-        GameBuilder.getInstance().setPlayers("1", "2");
+        GameBuilder.getInstance().setHumanPlayers("1", "2");
         GameBuilder.getInstance().setField(3);
         Game game = GameBuilder.getInstance().initGame();
 

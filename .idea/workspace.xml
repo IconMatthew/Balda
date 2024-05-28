@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2cf13ca-5cfb-4b46-a367-d792a32035e0" name="Changes" comment="Added step finish after player adds word to dictionary">
+    <list default="true" id="b2cf13ca-5cfb-4b46-a367-d792a32035e0" name="Changes" comment="Removed unnecessary settings panel">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/view/CellSubSequencePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/view/CellSubSequencePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jadae/view/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/jadae/view/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GameTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GameTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,25 +25,21 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 7
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: -1
 }</component>
   <component name="ProjectId" id="2gT7VawVzSjQfKTceSe07jupm7p" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Debug",
-    "JUnit.All in Balda.executor": "Run",
-    "JUnit.PlayerTests.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/jadae/IdeaProjects/loan-processor",
+    "last_opened_file_path": "C:/Users/jadae/IdeaProjects/Balda",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -52,7 +48,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.GameTests.changeActivePlayer2Times">
     <configuration name="All in Balda" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Balda" />
       <option name="PACKAGE_NAME" value="" />
@@ -79,6 +75,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GameTests.changeActivePlayer2Times" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Balda" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GameTests" />
+      <option name="METHOD_NAME" value="changeActivePlayer2Times" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GameTests.gameEndsCorrectly1stWinner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Balda" />
       <option name="PACKAGE_NAME" value="" />
@@ -92,18 +98,12 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in Balda" />
+        <item itemvalue="JUnit.GameTests.changeActivePlayer2Times" />
         <item itemvalue="JUnit.GameTests.gameEndsCorrectly1stWinner" />
         <item itemvalue="JUnit.FieldTests" />
         <item itemvalue="JUnit.AlphabetTests" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -118,16 +118,7 @@
       <workItem from="1715711382631" duration="3313000" />
       <workItem from="1715724114354" duration="3135000" />
       <workItem from="1715766733438" duration="5401000" />
-      <workItem from="1716290753487" duration="2509000" />
-      <workItem from="1716367496666" duration="3855000" />
-      <workItem from="1716459134110" duration="305000" />
-      <workItem from="1716460315636" duration="266000" />
-      <workItem from="1716461211571" duration="27000" />
-      <workItem from="1716812316182" duration="2744000" />
-      <workItem from="1716815204438" duration="24000" />
-      <workItem from="1716816289384" duration="959000" />
-      <workItem from="1716817400171" duration="33000" />
-      <workItem from="1716817653504" duration="700000" />
+      <workItem from="1716890016191" duration="32305000" />
     </task>
     <task id="LOCAL-00001" summary="Changed view logic">
       <option name="closed" value="true" />
@@ -409,49 +400,85 @@
       <option name="project" value="LOCAL" />
       <updated>1715725546121</updated>
     </task>
-    <task id="LOCAL-00036" summary="Changed absolute path to relative for dictionaries">
+    <task id="LOCAL-00036" summary="Made changePlayerStatus universal for more than two players">
       <option name="closed" value="true" />
-      <created>1716816414761</created>
+      <created>1716834908610</created>
       <option name="number" value="00036" />
       <option name="presentableId" value="LOCAL-00036" />
       <option name="project" value="LOCAL" />
-      <updated>1716816414761</updated>
+      <updated>1716834908610</updated>
     </task>
-    <task id="LOCAL-00037" summary="Changed font-size for default dimension">
+    <task id="LOCAL-00037" summary="Added logic for computerPlayer">
       <option name="closed" value="true" />
-      <created>1716816725699</created>
+      <created>1716931407477</created>
       <option name="number" value="00037" />
       <option name="presentableId" value="LOCAL-00037" />
       <option name="project" value="LOCAL" />
-      <updated>1716816725699</updated>
+      <updated>1716931407477</updated>
     </task>
-    <task id="LOCAL-00038" summary="Changed input logic for PlayerTests">
+    <task id="LOCAL-00038" summary="Added method to check if cell has empty neighbours">
       <option name="closed" value="true" />
-      <created>1716817217169</created>
+      <created>1716931435294</created>
       <option name="number" value="00038" />
       <option name="presentableId" value="LOCAL-00038" />
       <option name="project" value="LOCAL" />
-      <updated>1716817217169</updated>
+      <updated>1716931435294</updated>
     </task>
-    <task id="LOCAL-00039" summary="Added step finish after player adds word to dictionary">
+    <task id="LOCAL-00039" summary="Added method to find the closest word to subsequence">
       <option name="closed" value="true" />
-      <created>1716817253251</created>
+      <created>1716931492079</created>
       <option name="number" value="00039" />
       <option name="presentableId" value="LOCAL-00039" />
       <option name="project" value="LOCAL" />
-      <updated>1716817253251</updated>
+      <updated>1716931492079</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Added config for computer player">
+      <option name="closed" value="true" />
+      <created>1716931524367</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1716931524367</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Translated confirmation header to Russian">
+      <option name="closed" value="true" />
+      <created>1716931547557</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1716931547557</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Changed logic to suit for scenarios with computer player">
+      <option name="closed" value="true" />
+      <created>1716931597360</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1716931597360</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Added setActive method for overriding">
+      <option name="closed" value="true" />
+      <created>1716931621943</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1716931621943</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Removed unnecessary settings panel">
+      <option name="closed" value="true" />
+      <created>1716931640181</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1716931640181</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added CellSubSequencePanel logic" />
-    <MESSAGE value="Added ControlsPanel logic" />
-    <MESSAGE value="Added ActionButton logic" />
-    <MESSAGE value="Added FormedWordsContainer logic" />
     <MESSAGE value="Added MenuTextField logic" />
     <MESSAGE value="Skip move now returns cell if it was already selected" />
     <MESSAGE value="Added rethrow for InvalidFormedWord exception" />
@@ -468,20 +495,24 @@
     <MESSAGE value="Bound move cancel for esc button" />
     <MESSAGE value="Added mock for wordFormer" />
     <MESSAGE value="Changed path to dictionaries" />
-    <MESSAGE value="aaaaaa" />
-    <MESSAGE value="Changed absolute path to relative for dictionaries" />
-    <MESSAGE value="Changed font-size for default dimension" />
-    <MESSAGE value="Changed input logic for PlayerTests" />
-    <MESSAGE value="Added step finish after player adds word to dictionary" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added step finish after player adds word to dictionary" />
+    <MESSAGE value="Made changePlayerStatus universal for more than two players" />
+    <MESSAGE value="Added logic for computerPlayer" />
+    <MESSAGE value="Added method to check if cell has empty neighbours" />
+    <MESSAGE value="Added method to find the closest word to subsequence" />
+    <MESSAGE value="Added config for computer player" />
+    <MESSAGE value="Translated confirmation header to Russian" />
+    <MESSAGE value="Changed logic to suit for scenarios with computer player" />
+    <MESSAGE value="Added setActive method for overriding" />
+    <MESSAGE value="Removed unnecessary settings panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed unnecessary settings panel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/jadae/view/GamePanel.java</url>
-          <line>110</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/src/test/java/GameTests.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
