@@ -76,4 +76,14 @@ public class Dictionary {
     public void cleanFormedWords(){
         this.formedWords = new ArrayList<>();
     }
+
+    public String getClosestWordToSubSequence(String sequence) {
+        return words.stream()
+                .filter(e -> e.contains(sequence)
+                        && e.length() == sequence.length() + 1
+                        && e.charAt(0) != sequence.charAt(0)
+                        && !wasFormedBefore(e))
+                .findFirst().orElse(null);
+    }
+
 }
