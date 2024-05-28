@@ -36,4 +36,10 @@ public class Cell {
         return this.neighbours.contains(cell);
     }
 
+    public boolean hasEmptyNeighbours() {
+        for (Cell cell : neighbours) {
+            if (cell.getCellValue() == null) return true;
+        }
+        return false;
+    }
 }
