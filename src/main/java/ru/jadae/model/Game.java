@@ -1,8 +1,8 @@
 package ru.jadae.model;
 
 import lombok.Getter;
+import ru.jadae.complayer.ComputerPlayer;
 import ru.jadae.exceptions.DuplicateWord;
-import ru.jadae.exceptions.InvalidFormedWord;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,7 +21,7 @@ public class Game {
     public Game(List<Player> players, Field field) {
         this.players = players;
         this.field = field;
-        this.activePlayer = changePlayersStatus();
+        changePlayersStatus();
     }
 
     public void step1SelectCell(Cell cell) {
@@ -60,7 +60,7 @@ public class Game {
         try {
             activePlayer.submitMoveFinished();
             checkGameEnd();
-            activePlayer = changePlayersStatus();
+            changePlayersStatus();
             skipCounter = 0;
             return true;
         }
@@ -68,6 +68,14 @@ public class Game {
             System.out.println(e.getMessage());
             throw new DuplicateWord();
         } catch (Exception e) {
+
+            if (activePlayer instanceof ComputerPlayer){
+                checkGameEnd();
+                changePlayersStatus();
+                skipCounter = 0;
+                return true;
+            }
+
             System.out.println(e.getMessage());
             return false;
         }
@@ -90,7 +98,7 @@ public class Game {
             if (cell != null) {
                 this.field.getCellByPosIndexes(cell.getHeightPos(), cell.getWidthPos()).setCellValue(null);
             }
-            activePlayer = changePlayersStatus();
+            changePlayersStatus();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -133,6 +141,7 @@ public class Game {
                 }
             }
 
+            dropActivePlayers();
             this.gameOver = true;
             this.skipCounter = 0;
             return true;
@@ -160,24 +169,38 @@ public class Game {
         return winners;
     }
 
-    private Player changePlayersStatus() {
+    private void changePlayersStatus() {
 
         for (int i = 0; i < players.size(); i++) {
             if (players.get(i).isActive()){
                 players.get(i).setActive(false);
                 if (i != players.size() - 1){
                     players.get(i+1).setActive(true);
-                    return players.get(i+1);
+                    activePlayer = players.get(i+1);
+                    break;
                 }
                 else {
                     players.get(0).setActive(true);
-                    return players.get(0);
+                    activePlayer = players.get(0);
+                    break;
                 }
             }
         }
 
-        players.get(0).setActive(true);
-        return players.get(0);
+        if (activePlayer == null){
+            players.get(0).setActive(true);
+            activePlayer = players.get(0);
+        }
+
+        if (activePlayer instanceof ComputerPlayer && this.field.containsEmptyCells()){
+            ((ComputerPlayer) activePlayer).makeStep();
+            //step4FinishMove();
+        }
+    }
+
+    private void dropActivePlayers(){
+        activePlayer.setActive(false);
+        changePlayersStatus();
     }
 
 }

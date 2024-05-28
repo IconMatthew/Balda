@@ -1,5 +1,6 @@
 package ru.jadae.view;
 
+import ru.jadae.complayer.ComputerPlayer;
 import ru.jadae.exceptions.DuplicateWord;
 import ru.jadae.view.custom_panels.ActionButton;
 
@@ -40,6 +41,11 @@ public class ControlsPanel extends JPanel {
         try{
             if (!owner.getGame().step4FinishMove()) {
                 owner.suggestAddingWordToDictionary();
+            }
+
+            if (owner.getGame().getActivePlayer() instanceof ComputerPlayer){
+                owner.update();
+                owner.getGame().step4FinishMove();
             }
         } catch (DuplicateWord e){
             System.out.println(e.getMessage());
