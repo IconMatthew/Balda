@@ -134,4 +134,8 @@ public class Player {
     public void cleanAllFormedWords(){
         this.formedWords = new ArrayList<>();
     }
+
+    public void setActive(boolean isActive){
+        this.isActive = isActive;
+    }
 }
