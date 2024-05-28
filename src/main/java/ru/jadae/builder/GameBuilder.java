@@ -1,16 +1,14 @@
 package ru.jadae.builder;
 
 import lombok.Getter;
+import ru.jadae.complayer.ComputerPlayer;
 import ru.jadae.enums.Languages;
 import ru.jadae.exceptions.InitException;
 import ru.jadae.exceptions.PlayerInitException;
 import ru.jadae.model.*;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 @Getter
 public class GameBuilder {
@@ -18,14 +16,14 @@ public class GameBuilder {
     private static GameBuilder instance;
 
     private Dictionary dictionary;
-    private final List<Player> players = new ArrayList<>(2);
+    private List<Player> players;
     private Field field;
 
     private final List<Integer> validFieldSizes = new ArrayList<>(6);
     private final List<Languages> validLanguages = new ArrayList<>(2);
 
     private void initializeValidFieldSizes() {
-        for (int i = 3; i < 11; i += 2) {
+        for (int i = 3; i < 9; i += 2) {
             validFieldSizes.add(i);
         }
     }
@@ -63,12 +61,17 @@ public class GameBuilder {
         this.dictionary.addFormedWord(field.getWord());
     }
 
-    public void setPlayers(String name1, String name2) {
-
+    public void setHumanPlayers(String name1, String name2) {
+        players = new ArrayList<>(2);
         if (name1.equals(name2)) throw new PlayerInitException("Entered names are equal");
-
         this.players.add(new Player(name1, new WordFormer(this.dictionary)));
         this.players.add(new Player(name2, new WordFormer(this.dictionary)));
+    }
+    public void setHumanAndComputerPlayers(String name1) {
+        players = new ArrayList<>(2);
+        if (name1.equals("Компьютер")) throw new PlayerInitException("Entered names are equal");
+        this.players.add(new Player(name1, new WordFormer(this.dictionary)));
+        this.players.add(new ComputerPlayer("Компьютер", new WordFormer(this.dictionary), this.field));
     }
 
     public Game initGame() {
