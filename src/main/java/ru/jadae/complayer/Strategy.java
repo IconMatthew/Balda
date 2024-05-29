@@ -1,50 +1,24 @@
 package ru.jadae.complayer;
 
 import lombok.Getter;
+import lombok.Setter;
 import ru.jadae.model.Cell;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Getter
-public class CompPlayerEntity {
-
+@Setter
+public abstract class Strategy {
     private ComputerPlayer computerPlayer;
     private List<Cell> sequence;
     private Cell cellToChose;
     private Character letterToEnter;
-
-    public CompPlayerEntity(ComputerPlayer computerPlayer) {
-        this.computerPlayer = computerPlayer;
-    }
-
-    // Получить все сущности, необходимые для выполнения хода
-    public void findStepEntities() {
-        Map<String, List<Cell>> wordToUnfinishedCellSubSequence = getWordsToSequencesMap();
-
-        Map.Entry<String, List<Cell>> entry = wordToUnfinishedCellSubSequence.entrySet().stream()
-                .max(Comparator.comparingInt(e -> e.getKey().length()))
-                .orElse(null);
-
-        if (entry == null) return;
-
-        String biggestLengthOfWordToForm = entry.getKey();
-        letterToEnter = biggestLengthOfWordToForm.charAt(0);
-
-        Cell neighbourCell = entry.getValue().get(0).getNeighbours().stream()
-                .filter(e -> e.getCellValue() == null)
-                .findFirst()
-                .orElse(null);
-
-        if (neighbourCell == null) return;
-
-        cellToChose = neighbourCell;
-        sequence = entry.getValue();
-    }
+    public abstract void findStepEntities();
 
     // Получить все возможные слова для вставки
-    private Map<String, List<Cell>> getWordsToSequencesMap() {
-        List<Cell> flattenedList = Arrays.stream(computerPlayer.getField().getCells())
+    protected Map<String, List<Cell>> getWordsToSequencesMap() {
+        List<Cell> flattenedList = Arrays.stream(getComputerPlayer().getField().getCells())
                 .flatMap(Arrays::stream)
                 .collect(Collectors.toList());
 
@@ -55,7 +29,7 @@ public class CompPlayerEntity {
 
         // Создаём карту: подобранное слово - неполная последовательность ячеек
         allSequences.forEach(sequence -> {
-            String word = computerPlayer.getWordFormer().getDictionary()
+            String word = getComputerPlayer().getWordFormer().getDictionary()
                     .getClosestWordToSubSequence(mapCellSequenceToString(sequence));
             if (word != null) {
                 wordToUnfinishedCellSubSequence.put(word, sequence);
@@ -66,7 +40,7 @@ public class CompPlayerEntity {
     }
 
     // Преобразовать последовательность ячеек в строку
-    private String mapCellSequenceToString(List<Cell> sequence) {
+    protected String mapCellSequenceToString(List<Cell> sequence) {
         return sequence.stream()
                 .map(Cell::getCellValue)
                 .map(String::valueOf)
@@ -74,7 +48,7 @@ public class CompPlayerEntity {
     }
 
     // Найти все непустые последовательности, в которых у первой ячейки будут пустые соседи
-    private List<List<Cell>> findAllSequences(List<Cell> cells) {
+    protected List<List<Cell>> findAllSequences(List<Cell> cells) {
         List<List<Cell>> allSequences = new ArrayList<>();
 
         cells.stream()
@@ -87,7 +61,7 @@ public class CompPlayerEntity {
     }
 
     // Найти все последовательности, начинающиеся с ячейки
-    private void findSequencesFromCell(Cell current, List<Cell> currentSequence, Set<Cell> visited, List<List<Cell>> allSequences) {
+    protected void findSequencesFromCell(Cell current, List<Cell> currentSequence, Set<Cell> visited, List<List<Cell>> allSequences) {
         visited.add(current);
         currentSequence.add(current);
         allSequences.add(new ArrayList<>(currentSequence));
