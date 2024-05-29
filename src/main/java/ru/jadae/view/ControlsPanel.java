@@ -35,6 +35,18 @@ public class ControlsPanel extends JPanel {
     private void skipTurnCurrentPlayer() {
         owner.getGame().additionalStep2SkipMove();
         owner.update();
+        try {
+            if (owner.getGame().getActivePlayer() instanceof ComputerPlayer){
+                owner.update();
+                owner.getGame().step4FinishMove();
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        } finally {
+            owner.update();
+        }
+
+
     }
 
     private void confirmCurrentSubSequence() {
