@@ -1,8 +1,6 @@
 package ru.jadae.complayer;
 
 import lombok.Getter;
-
-import lombok.Setter;
 import ru.jadae.model.*;
 
 
@@ -10,34 +8,35 @@ import ru.jadae.model.*;
 public class ComputerPlayer extends Player {
 
     private Field field;
-    private CompPlayerEntity compPlayerEntity;
+    private Strategy strategy;
 
     @Override
     public void setActive(boolean isActive) {
         super.setActive(isActive);
     }
 
-    public ComputerPlayer(String playerName, WordFormer wordFormer, Field field) {
+    public ComputerPlayer(String playerName, WordFormer wordFormer, Field field, Strategy strategy) {
         super(playerName, wordFormer);
         this.field = field;
-        compPlayerEntity = new CompPlayerEntity(this);
+        this.strategy = strategy;
+        strategy.setComputerPlayer(this);
     }
 
     public void makeStep(){
-        compPlayerEntity.findStepEntities();
+        strategy.findStepEntities();
 
-        if (compPlayerEntity.getCellToChose() == null){
+        if (strategy.getCellToChose() == null){
             super.skipMove();
             return;
         }
 
-        super.setCellActiveForInsertingLetter(compPlayerEntity.getCellToChose());
+        super.setCellActiveForInsertingLetter(strategy.getCellToChose());
         super.setFirstStepIsDone(true);
-        super.enterLetterToCell(compPlayerEntity.getLetterToEnter());
+        super.enterLetterToCell(strategy.getLetterToEnter());
         super.setSecondStepIsDone(true);
-        super.addCellToWord(compPlayerEntity.getCellToChose());
+        super.addCellToWord(strategy.getCellToChose());
 
-        for (Cell cell: compPlayerEntity.getSequence()) {
+        for (Cell cell: strategy.getSequence()) {
             super.addCellToWord(cell);
         }
 
