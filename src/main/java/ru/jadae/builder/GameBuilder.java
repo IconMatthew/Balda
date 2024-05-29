@@ -1,7 +1,7 @@
 package ru.jadae.builder;
 
 import lombok.Getter;
-import ru.jadae.complayer.ComputerPlayer;
+import ru.jadae.complayer.*;
 import ru.jadae.enums.Languages;
 import ru.jadae.exceptions.InitException;
 import ru.jadae.exceptions.PlayerInitException;
@@ -21,6 +21,7 @@ public class GameBuilder {
 
     private final List<Integer> validFieldSizes = new ArrayList<>(6);
     private final List<Languages> validLanguages = new ArrayList<>(2);
+    private final List<String> validDifficulties = new ArrayList<>(2);
 
     private void initializeValidFieldSizes() {
         for (int i = 3; i < 9; i += 2) {
@@ -33,9 +34,16 @@ public class GameBuilder {
         validLanguages.add(Languages.ENG);
     }
 
+    private void initializeValidDifficulties() {
+        validDifficulties.add("HARD");
+        validDifficulties.add("MEDIUM");
+        validDifficulties.add("EASY");
+    }
+
     private GameBuilder() {
         initializeValidLanguages();
         initializeValidFieldSizes();
+        initializeValidDifficulties();
     }
 
     public static GameBuilder getInstance() {
@@ -67,11 +75,23 @@ public class GameBuilder {
         this.players.add(new Player(name1, new WordFormer(this.dictionary)));
         this.players.add(new Player(name2, new WordFormer(this.dictionary)));
     }
-    public void setHumanAndComputerPlayers(String name1) {
+    public void setHumanAndComputerPlayers(String name1, String difficultyLevel) {
         players = new ArrayList<>(2);
         if (name1.equals("Компьютер")) throw new PlayerInitException("Entered names are equal");
         this.players.add(new Player(name1, new WordFormer(this.dictionary)));
-        this.players.add(new ComputerPlayer("Компьютер", new WordFormer(this.dictionary), this.field));
+
+        Strategy strategy = null;
+        if (difficultyLevel.equals("HARD")){
+            strategy = new HardComputerPlayerStrategy();
+        }
+        else if (difficultyLevel.equals("MEDIUM")) {
+            strategy = new EasyComputerPlayerStrategy();
+        }
+        else {
+            strategy = new MediumComputerPlayerStrategy();
+        }
+
+        this.players.add(new ComputerPlayer("Компьютер", new WordFormer(this.dictionary), this.field, strategy));
     }
 
     public Game initGame() {
