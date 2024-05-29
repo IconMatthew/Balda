@@ -20,6 +20,8 @@ public class SettingsMenuPanel extends JPanel {
     private final JComboBox<String> fieldSizeSelect;
     private final JLabel secondPlayerNameLabel = new JLabel("Второй игрок");
     private final JCheckBox isComputerPlayer = new JCheckBox("Против компьютера");
+    private final JLabel difficultyLevelLabel = new JLabel("Уровень сложности");
+    private final JComboBox<String> difficultiesSelect;
     private final JComboBox<String> alphabetSelect;
 
     public SettingsMenuPanel(@NotNull GameFrame owner) {
@@ -35,6 +37,9 @@ public class SettingsMenuPanel extends JPanel {
 
         alphabetSelect = new JComboBox<>(alphabets);
 
+        String[] availableDifficulties = GameBuilder.getInstance().getValidDifficulties().toArray(String[]::new);
+
+        difficultiesSelect = new JComboBox<>(availableDifficulties);
         setLayout(new GridBagLayout());
         setBorder(BorderFactory.createEmptyBorder(0, 30, 0, 30));
 
@@ -68,9 +73,16 @@ public class SettingsMenuPanel extends JPanel {
         secondPlayerNameLabel.setFont(Styles.LABEL_FONT);
         add(secondPlayerNameLabel, constraints);
 
+        difficultyLevelLabel.setFont(Styles.LABEL_FONT);
+        difficultyLevelLabel.setVisible(false);
+        add(difficultyLevelLabel, constraints);
+
         constraints.gridwidth = 3;
         constraints.gridx = 2;
         add(secondPlayerNameField, constraints);
+
+        difficultiesSelect.setVisible(false);
+        add(difficultiesSelect, constraints);
 
         constraints.gridwidth = 3;
         constraints.gridy = 3;
@@ -100,10 +112,14 @@ public class SettingsMenuPanel extends JPanel {
         add(isComputerPlayer, constraints);
         isComputerPlayer.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
+                difficultiesSelect.setVisible(true);
                 secondPlayerNameField.setVisible(false);
+                difficultyLevelLabel.setVisible(true);
                 secondPlayerNameLabel.setVisible(false);
             } else {
+                difficultiesSelect.setVisible(false);
                 secondPlayerNameField.setVisible(true);
+                difficultyLevelLabel.setVisible(false);
                 secondPlayerNameLabel.setVisible(true);
             }
         });
@@ -126,7 +142,7 @@ public class SettingsMenuPanel extends JPanel {
 
         Game game;
         if (isComputerPlayer.isSelected()) {
-            GameBuilder.getInstance().setHumanAndComputerPlayers(first);
+            GameBuilder.getInstance().setHumanAndComputerPlayers(first, (String) difficultiesSelect.getSelectedItem());
         } else {
             GameBuilder.getInstance().setHumanPlayers(first, second);
         }
