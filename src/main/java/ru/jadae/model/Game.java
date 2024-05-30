@@ -26,7 +26,6 @@ public class Game {
 
     public void step1SelectCell(Cell cell) {
         try {
-            System.out.println("Pick cell");
             activePlayer.setCellActiveForInsertingLetter(field.getCellByPosIndexes(cell.getHeightPos(), cell.getWidthPos()));
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -38,7 +37,6 @@ public class Game {
         if (checkGameEnd()) return;
 
         try {
-            System.out.println("Enter letter");
             activePlayer.enterLetterToCell(letter);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -48,7 +46,6 @@ public class Game {
     public void step3ChooseCell(Cell cell) {
 
         try {
-            System.out.println("Pick cell");
             activePlayer.addCellToWord(field.getCellByPosIndexes(cell.getHeightPos(), cell.getWidthPos()));
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -76,7 +73,6 @@ public class Game {
                 return true;
             }
 
-            System.out.println(e.getMessage());
             return false;
         }
     }
@@ -134,7 +130,7 @@ public class Game {
                     Player winner = playerToScore.containsKey(players.get(0)) ? players.get(0) : players.get(1);
                     gameResultMessage = "Победил " + winner.getPlayerName() + "\n" +
                             "Очки: " + playerToScore.get(winner);
-                } else System.out.println("Победитель не выявлен");
+                }
                 for (Player player:players) {
                     player.cleanAllFormedWords();
                     player.getWordFormer().getDictionary().cleanFormedWords();
@@ -194,7 +190,6 @@ public class Game {
 
         if (activePlayer instanceof ComputerPlayer && this.field.containsEmptyCells()){
             ((ComputerPlayer) activePlayer).makeStep();
-            //step4FinishMove();
         }
     }
 
