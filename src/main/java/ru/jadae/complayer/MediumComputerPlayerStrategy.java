@@ -9,13 +9,13 @@ import java.util.Random;
 
 public class MediumComputerPlayerStrategy extends Strategy{
     @Override
-    public void findStepEntities() {
+    public void findStepEntities(ComputerPlayer computerPlayer) {
         Random random = new Random();
         if (random.nextBoolean()){
             return;
         }
 
-        Map<String, List<Cell>> wordToUnfinishedCellSubSequence = getWordsToSequencesMap();
+        Map<String, List<Cell>> wordToUnfinishedCellSubSequence = getWordsToSequencesMap(computerPlayer);
 
         Map.Entry<String, List<Cell>> entry = wordToUnfinishedCellSubSequence.entrySet().stream()
                 .max(Comparator.comparingInt(e -> e.getKey().length()))

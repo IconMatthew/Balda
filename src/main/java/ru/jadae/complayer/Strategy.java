@@ -10,15 +10,14 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 public abstract class Strategy {
-    private ComputerPlayer computerPlayer;
     private List<Cell> sequence;
     private Cell cellToChose;
     private Character letterToEnter;
-    public abstract void findStepEntities();
+    public abstract void findStepEntities(ComputerPlayer computerPlayer);
 
     // Получить все возможные слова для вставки
-    protected Map<String, List<Cell>> getWordsToSequencesMap() {
-        List<Cell> flattenedList = Arrays.stream(getComputerPlayer().getField().getCells())
+    protected Map<String, List<Cell>> getWordsToSequencesMap(ComputerPlayer player) {
+        List<Cell> flattenedList = Arrays.stream(player.getField().getCells())
                 .flatMap(Arrays::stream)
                 .collect(Collectors.toList());
 
@@ -29,7 +28,7 @@ public abstract class Strategy {
 
         // Создаём карту: подобранное слово - неполная последовательность ячеек
         allSequences.forEach(sequence -> {
-            String word = getComputerPlayer().getWordFormer().getDictionary()
+            String word = player.getWordFormer().getDictionary()
                     .getClosestWordToSubSequence(mapCellSequenceToString(sequence));
             if (word != null) {
                 wordToUnfinishedCellSubSequence.put(word, sequence);

@@ -10,8 +10,8 @@ public class HardComputerPlayerStrategy extends Strategy{
 
     // Получить все сущности, необходимые для выполнения хода
     @Override
-    public void findStepEntities() {
-        Map<String, List<Cell>> wordToUnfinishedCellSubSequence = getWordsToSequencesMap();
+    public void findStepEntities(ComputerPlayer computerPlayer) {
+        Map<String, List<Cell>> wordToUnfinishedCellSubSequence = getWordsToSequencesMap(computerPlayer);
 
         Map.Entry<String, List<Cell>> entry = wordToUnfinishedCellSubSequence.entrySet().stream()
                 .max(Comparator.comparingInt(e -> e.getKey().length()))
