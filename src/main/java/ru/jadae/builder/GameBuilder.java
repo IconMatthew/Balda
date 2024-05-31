@@ -24,7 +24,7 @@ public class GameBuilder {
     private final List<String> validDifficulties = new ArrayList<>(2);
 
     private void initializeValidFieldSizes() {
-        for (int i = 3; i < 9; i += 2) {
+        for (int i = 3; i < 7; i += 2) {
             validFieldSizes.add(i);
         }
     }
