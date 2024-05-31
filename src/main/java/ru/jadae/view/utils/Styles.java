@@ -10,6 +10,6 @@ public class Styles {
     public static Color BUTTON_COLOR = Color.decode("#7590C5");
     public static Color BORDER_COLOR = Color.decode("#acadae");
     public static Color ACTIVE_PLAYER_COLOR = Color.decode("#0B14DC");
-    public static Font TITLE_FONT = new Font("Century Gothic", Font.PLAIN, 28);
+    public static Font TITLE_FONT = new Font("Century Gothic", Font.PLAIN, 20);
     public static Font LABEL_FONT = new Font("Century Gothic", Font.PLAIN, 16);
 }
