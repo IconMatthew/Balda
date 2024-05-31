@@ -1,11 +1,12 @@
 package ru.jadae.complayer;
 
 import lombok.Getter;
+import lombok.Setter;
 import ru.jadae.model.*;
 
 
 @Getter
-public class ComputerPlayer extends Player {
+public class ComputerPlayer extends Player implements CanInitiateStep {
 
     private Field field;
     private Strategy strategy;
@@ -16,7 +17,8 @@ public class ComputerPlayer extends Player {
         this.strategy = strategy;
     }
 
-    public void makeStep(){
+    @Override
+    public void initiateStep(Game game){
         strategy.findStepEntities(this);
 
         if (strategy.getCellToChose() == null){
@@ -34,7 +36,7 @@ public class ComputerPlayer extends Player {
             super.addCellToWord(cell);
         }
 
-        super.submitMoveFinished();
+        game.step4FinishMove();
     }
 
 }

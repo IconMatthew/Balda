@@ -19,6 +19,7 @@ public class Game {
     private int skipCounter = 0;
 
     public Game(List<Player> players, Field field) {
+
         this.players = players;
         this.field = field;
         changePlayersStatus();
@@ -65,14 +66,6 @@ public class Game {
             System.out.println(e.getMessage());
             throw new DuplicateWord();
         } catch (Exception e) {
-
-            if (activePlayer instanceof ComputerPlayer){
-                checkGameEnd();
-                changePlayersStatus();
-                skipCounter = 0;
-                return true;
-            }
-
             return false;
         }
     }
@@ -131,13 +124,8 @@ public class Game {
                     gameResultMessage = "Победил " + winner.getPlayerName() + "\n" +
                             "Очки: " + playerToScore.get(winner);
                 }
-                for (Player player:players) {
-                    player.cleanAllFormedWords();
-                    player.getWordFormer().getDictionary().cleanFormedWords();
-                }
             }
 
-            dropActivePlayers();
             this.gameOver = true;
             this.skipCounter = 0;
             return true;
@@ -168,14 +156,13 @@ public class Game {
     private void changePlayersStatus() {
 
         for (int i = 0; i < players.size(); i++) {
-            if (players.get(i).isActive()){
+            if (players.get(i).isActive()) {
                 players.get(i).setActive(false);
-                if (i != players.size() - 1){
-                    players.get(i+1).setActive(true);
-                    activePlayer = players.get(i+1);
+                if (i != players.size() - 1) {
+                    players.get(i + 1).setActive(true);
+                    activePlayer = players.get(i + 1);
                     break;
-                }
-                else {
+                } else {
                     players.get(0).setActive(true);
                     activePlayer = players.get(0);
                     break;
@@ -183,19 +170,13 @@ public class Game {
             }
         }
 
-        if (activePlayer == null){
+        if (activePlayer == null) {
             players.get(0).setActive(true);
             activePlayer = players.get(0);
         }
 
-        if (activePlayer instanceof ComputerPlayer && this.field.containsEmptyCells()){
-            ((ComputerPlayer) activePlayer).makeStep();
+        if (activePlayer instanceof ComputerPlayer && this.field.containsEmptyCells()) {
+            ((ComputerPlayer) activePlayer).initiateStep(this);
         }
     }
-
-    private void dropActivePlayers(){
-        activePlayer.setActive(false);
-        changePlayersStatus();
-    }
-
 }

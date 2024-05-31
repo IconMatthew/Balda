@@ -80,13 +80,12 @@ public class GamePanel extends JPanel {
 
         fieldView.update();
         cellSubSequencePanel.update();
-
+        playersPanels.forEach(PlayersPanel::update);
         if (this.game.isGameOver()) {
             JOptionPane.showMessageDialog(owner, this.game.getGameResultMessage());
             owner.toStartMenu();
         }
 
-        playersPanels.forEach(PlayersPanel::update);
     }
 
     private class KeyController implements KeyListener {
