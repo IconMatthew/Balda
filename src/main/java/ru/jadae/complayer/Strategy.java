@@ -13,6 +13,7 @@ public abstract class Strategy {
     private List<Cell> sequence;
     private Cell cellToChose;
     private Character letterToEnter;
+    private int incVal = 0;
     public abstract void findStepEntities(ComputerPlayer computerPlayer);
 
     // Получить все возможные слова для вставки
@@ -66,7 +67,7 @@ public abstract class Strategy {
         allSequences.add(new ArrayList<>(currentSequence));
 
         current.getNeighbours().stream()
-                .filter(neighbour -> neighbour.getCellValue() != null && !visited.contains(neighbour))
+                .filter(neighbour -> neighbour.getCellValue() != null && !visited.contains(neighbour) && ++incVal < 1500)
                 .forEach(neighbour -> findSequencesFromCell(neighbour, currentSequence, visited, allSequences));
 
         visited.remove(current);
