@@ -47,13 +47,13 @@ public class PlayerTests {
         Cell cell = new Cell(0, 0);
         List<Cell> neighbours = new ArrayList<>(1);
         Cell neighbourCell = new Cell(0, 1);
-        neighbourCell.setCellValue('ф');
+        neighbourCell.setCellValue('д');
         neighbours.add(neighbourCell);
         cell.setNeighbours(neighbours);
 
         Assertions.assertNull(cell.getCellValue());
         player.setCellActiveForInsertingLetter(cell);
-        player.enterLetterToCell('м');
+        player.enterLetterToCell('а');
         Assertions.assertNotNull(cell.getCellValue());
     }
 
@@ -64,7 +64,7 @@ public class PlayerTests {
         Cell cell = new Cell(0, 0);
         List<Cell> neighbours = new ArrayList<>(1);
         Cell neighbourCell = new Cell(0, 1);
-        neighbourCell.setCellValue('ф');
+        neighbourCell.setCellValue('а');
         neighbours.add(neighbourCell);
         cell.setNeighbours(neighbours);
 
@@ -103,12 +103,12 @@ public class PlayerTests {
         Cell cell = new Cell(0, 0);
         List<Cell> neighbours = new ArrayList<>(1);
         Cell neighbourCell = new Cell(0, 1);
-        neighbourCell.setCellValue('ф');
+        neighbourCell.setCellValue('д');
         neighbours.add(neighbourCell);
         cell.setNeighbours(neighbours);
 
         player.setCellActiveForInsertingLetter(cell);
-        player.enterLetterToCell('м');
+        player.enterLetterToCell('а');
         player.addCellToWord(cell);
 
         Assertions.assertEquals(1, player.getWordFormer().getQueueOfCells().size());
@@ -128,13 +128,13 @@ public class PlayerTests {
         List<Cell> neighbours2 = new ArrayList<>(1);
         neighbours2.add(cell);
 
-        neighbourCell.setCellValue('ф');
+        neighbourCell.setCellValue('д');
 
         cell.setNeighbours(neighbours1);
         neighbourCell.setNeighbours(neighbours2);
 
         player.setCellActiveForInsertingLetter(cell);
-        player.enterLetterToCell('м');
+        player.enterLetterToCell('а');
         player.addCellToWord(cell);
         player.addCellToWord(neighbourCell);
 
@@ -161,7 +161,7 @@ public class PlayerTests {
         neighbourCell.setNeighbours(neighbours2);
 
         player.setCellActiveForInsertingLetter(cell);
-        player.enterLetterToCell('м');
+        player.enterLetterToCell('а');
         player.addCellToWord(cell);
         player.addCellToWord(neighbourCell);
 
@@ -175,7 +175,7 @@ public class PlayerTests {
         Cell cell = new Cell(0, 0);
         List<Cell> neighbours = new ArrayList<>(1);
         Cell neighbourCell = new Cell(0, 1);
-        neighbourCell.setCellValue('ф');
+        neighbourCell.setCellValue('д');
         neighbours.add(neighbourCell);
         cell.setNeighbours(neighbours);
 
@@ -194,14 +194,14 @@ public class PlayerTests {
         Cell cell = new Cell(0, 0);
         List<Cell> neighbours = new ArrayList<>(1);
         Cell neighbourCell = new Cell(0, 1);
-        neighbourCell.setCellValue('ф');
+        neighbourCell.setCellValue('д');
         neighbours.add(neighbourCell);
         cell.setNeighbours(neighbours);
 
         Assertions.assertNull(cell.getCellValue());
         player.setCellActiveForInsertingLetter(cell);
         Assertions.assertTrue(cell.isActive());
-        player.enterLetterToCell('м');
+        player.enterLetterToCell('а');
         Assertions.assertNotNull(cell.getCellValue());
         player.cancelMove();
         Assertions.assertNull(cell.getCellValue());
@@ -228,7 +228,7 @@ public class PlayerTests {
         neighbourCell.setNeighbours(neighbours2);
 
         player.setCellActiveForInsertingLetter(cell);
-        player.enterLetterToCell('м');
+        player.enterLetterToCell('а');
         player.addCellToWord(cell);
         player.addCellToWord(neighbourCell);
 
