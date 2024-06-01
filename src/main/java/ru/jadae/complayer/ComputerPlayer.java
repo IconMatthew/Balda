@@ -1,7 +1,6 @@
 package ru.jadae.complayer;
 
 import lombok.Getter;
-import lombok.Setter;
 import ru.jadae.model.*;
 
 
@@ -27,9 +26,7 @@ public class ComputerPlayer extends Player implements CanInitiateStep {
         }
 
         super.setCellActiveForInsertingLetter(strategy.getCellToChose());
-        super.setFirstStepIsDone(true);
         super.enterLetterToCell(strategy.getLetterToEnter());
-        super.setSecondStepIsDone(true);
         super.addCellToWord(strategy.getCellToChose());
 
         for (Cell cell: strategy.getSequence()) {

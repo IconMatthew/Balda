@@ -1,6 +1,5 @@
 package ru.jadae.view;
 
-import ru.jadae.complayer.ComputerPlayer;
 import ru.jadae.exceptions.DuplicateWord;
 import ru.jadae.view.custom_panels.ActionButton;
 
