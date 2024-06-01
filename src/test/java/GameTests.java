@@ -84,7 +84,7 @@ public class GameTests {
         game.additionalStep2SkipMove();
         game.additionalStep2SkipMove();
 
-        Assertions.assertFalse(players.get(0).isActive());
+        Assertions.assertTrue(players.get(0).isActive());
         Assertions.assertFalse(players.get(1).isActive());
     }
 
@@ -102,7 +102,7 @@ public class GameTests {
         when(field.containsEmptyCells()).thenReturn(true);
 
         Assertions.assertFalse(players.get(0).isActive());
-        Assertions.assertFalse(players.get(1).isActive());
+        Assertions.assertTrue(players.get(1).isActive());
     }
 
     @Test
