@@ -67,7 +67,7 @@ public abstract class Strategy {
         allSequences.add(new ArrayList<>(currentSequence));
 
         current.getNeighbours().stream()
-                .filter(neighbour -> neighbour.getCellValue() != null && !visited.contains(neighbour) && ++incVal < 1500)
+                .filter(neighbour -> neighbour.getCellValue() != null && !visited.contains(neighbour))
                 .forEach(neighbour -> findSequencesFromCell(neighbour, currentSequence, visited, allSequences));
 
         visited.remove(current);

@@ -38,6 +38,7 @@ public class GameBuilder {
         validDifficulties.add("HARD");
         validDifficulties.add("MEDIUM");
         validDifficulties.add("EASY");
+        validDifficulties.add("REV");
     }
 
     private GameBuilder() {
@@ -84,8 +85,11 @@ public class GameBuilder {
         if (difficultyLevel.equals("HARD")){
             strategy = new HardComputerPlayerStrategy();
         }
-        else if (difficultyLevel.equals("MEDIUM")) {
+        else if (difficultyLevel.equals("EASY")) {
             strategy = new EasyComputerPlayerStrategy();
+        }
+        else if (difficultyLevel.equals("REV")) {
+            strategy = new ReverseWordStrategy(players.get(0));
         }
         else {
             strategy = new MediumComputerPlayerStrategy();

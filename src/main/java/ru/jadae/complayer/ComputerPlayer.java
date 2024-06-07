@@ -21,7 +21,7 @@ public class ComputerPlayer extends Player implements CanInitiateStep {
         strategy.findStepEntities(this);
 
         if (strategy.getCellToChose() == null){
-            super.skipMove();
+            game.additionalStep2SkipMove();
             return;
         }
 
